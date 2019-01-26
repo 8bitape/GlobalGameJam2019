@@ -25,6 +25,8 @@ public class PlayerMovement : PubSubMonoBehaviour
 
     private GameObject OpponentObj { get; set; }
 
+    private readonly float CAMERA_BOUNDS_PADDING = 0.75f;
+
     public void Init(Player player)
     {
         this.PlayerId = player.Id;
@@ -51,6 +53,8 @@ public class PlayerMovement : PubSubMonoBehaviour
 
     private void Update()
     {
+        this.ClampPositionWithinCameraBounds();
+
         if (this.OpponentObj != null)
         {
             var playerXPos = this.transform.position.x;
@@ -65,6 +69,21 @@ public class PlayerMovement : PubSubMonoBehaviour
                 this.Flip(this.GetFacingDirection());
             }
         }
+    }
+
+    private void ClampPositionWithinCameraBounds()
+    {
+        var dist = (this.transform.position - Camera.main.transform.position).z;
+
+        var leftBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).x;
+        var rightBorder = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, dist)).x;
+        var topBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).y;
+        var bottomBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, dist)).y;
+
+        this.transform.position = new Vector3(
+        Mathf.Clamp(this.transform.position.x, leftBorder + this.CAMERA_BOUNDS_PADDING / 2, rightBorder - this.CAMERA_BOUNDS_PADDING / 2),
+        Mathf.Clamp(this.transform.position.y, topBorder + this.CAMERA_BOUNDS_PADDING / 2, bottomBorder - this.CAMERA_BOUNDS_PADDING / 2),
+        this.transform.position.z);
     }
 
     private void RegisterOpponent(PlayerSpawned playerSpawned)

@@ -20,8 +20,7 @@ public class GameManager : PubSubMonoBehaviour
 
    private void EndCharacterSelect(EndCharacterSelect endCharacterSelect)
    {
-        var playerOneSpawnPos = new Vector3(-2.0f, 0.0f, 0.0f);
-        var playerTwoSpawnPos = new Vector3(2.0f, 0.0f, 0.0f);
+
    }
 
    private void TimeRanOut(TimeRanOut timeRanOut)
