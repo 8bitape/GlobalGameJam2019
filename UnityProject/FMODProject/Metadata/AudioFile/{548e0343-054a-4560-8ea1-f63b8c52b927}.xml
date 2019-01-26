@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{548e0343-054a-4560-8ea1-f63b8c52b927}">
+        <property name="assetPath">
+            <value>Med_HeavyPunch_2.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>0.33406249999999998</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{14ad7dec-c9f8-4970-9afa-9e0a96a1237e}</destination>
+        </relationship>
+    </object>
+</objects>
