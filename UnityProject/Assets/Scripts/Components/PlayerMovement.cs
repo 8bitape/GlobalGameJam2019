@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRxEventAggregator.Events;
@@ -8,7 +8,7 @@ using Events;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : PubSubMonoBehaviour
 {
-    private enum MovementDirection { Left, Right, Up, Down, None }
+    public enum MovementDirection { Left, Right, Up, Down, None }
 
     [SerializeField]
     private int playerID = 0;
@@ -26,8 +26,12 @@ public class PlayerMovement : PubSubMonoBehaviour
     private bool isJumping = false;
 
     [SerializeField]
+    private bool isBlocking = false;
+
+    [SerializeField]
     private MovementDirection startingMovementDirection;
 
+    [SerializeField]
     private MovementDirection currentMovementDirection = MovementDirection.None;
 
     private Rigidbody Body;
@@ -88,18 +92,29 @@ public class PlayerMovement : PubSubMonoBehaviour
                 this.Body.velocity = Vector3.zero;
             }
 
-            this.currentMovementDirection = this.GetFacingDirection();
+            var newFacingDirection = this.GetFacingDirection();
 
-            if(this.currentMovementDirection == MovementDirection.Right)
+            if (this.currentMovementDirection != newFacingDirection)
             {
+                this.Flip(newFacingDirection);
+            }
+
+            if (this.currentMovementDirection == MovementDirection.Right)
+            {
+                this.isBlocking = false;
+
                 PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, 1));
+
+                this.Body.velocity = new Vector3(playerMove.MoveVector.x * this.moveSpeed * Time.deltaTime, this.Body.velocity.y, 0.0f);
             }
             else if(this.currentMovementDirection == MovementDirection.Left)
             {
-                PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, -1));
-            }
+                this.isBlocking = true;
 
-            this.Body.velocity = new Vector3(playerMove.MoveVector.x * this.moveSpeed * Time.deltaTime, this.Body.velocity.y, 0.0f);
+                PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, -1));
+
+                this.Body.velocity = new Vector3(playerMove.MoveVector.x * (this.moveSpeed /2) * Time.deltaTime, this.Body.velocity.y, 0.0f);
+            }
         }
         else if(playerMove.MoveVector.x < 0.0f)
         { 
@@ -108,25 +123,36 @@ public class PlayerMovement : PubSubMonoBehaviour
                 this.Body.velocity = Vector3.zero;
             }
 
-            // Determine the player's new facing direction
-            this.currentMovementDirection = this.GetFacingDirection();
+            var newFacingDirection = this.GetFacingDirection();
+
+            if(this.currentMovementDirection != newFacingDirection)
+            {
+                this.Flip(newFacingDirection);
+            }
 
             // Publish an event to indicate the direction the player has moved (forwards/backwards)
             if (this.currentMovementDirection == MovementDirection.Right)
             {
+                this.isBlocking = true;
+
                 PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, -1));
+
+                this.Body.velocity = new Vector3(playerMove.MoveVector.x * (this.moveSpeed/2) * Time.deltaTime, this.Body.velocity.y, 0.0f);
             }
             else if (this.currentMovementDirection == MovementDirection.Left)
             {
-                PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, 1));
-            }
+                this.isBlocking = false;
 
-            this.Body.velocity = new Vector3(playerMove.MoveVector.x * this.moveSpeed * Time.deltaTime, this.Body.velocity.y, 0.0f);
+                PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, 1));
+
+                this.Body.velocity = new Vector3(playerMove.MoveVector.x * this.moveSpeed * Time.deltaTime, this.Body.velocity.y, 0.0f);
+            }
         }
         else if(playerMove.MoveVector == Vector3.zero && !this.isJumping)
         {
-            this.Body.velocity = Vector3.zero;
+            this.isBlocking = false;
 
+            this.Body.velocity = Vector3.zero;
             PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, 0));
         }
     }
@@ -171,19 +197,19 @@ public class PlayerMovement : PubSubMonoBehaviour
         switch(playerAttack.attackType)
         {
             case AttackType.LightPunch:
-                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.LightPunch));
+                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.LightPunch, false));
                 break;
 
             case AttackType.HeavyPunch:
-                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.HeavyPunch));
+                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.HeavyPunch, false));
                 break;
 
             case AttackType.LightKick:
-                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.LightKick));
+                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.LightKick, false));
                 break;
 
             case AttackType.HeavyKick:
-                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.HeavyKick));
+                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.HeavyKick, false));
                 break;
         }
     }

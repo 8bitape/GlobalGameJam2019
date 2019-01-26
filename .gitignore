@@ -33,3 +33,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+UnityProject/.DS_Store
+UnityProject/.DS_Store
+UnityProject/.DS_Store
+UnityProject/Assets/Standard Assets/.DS_Store
+UnityProject/fmod_editor.log
