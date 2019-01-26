@@ -29,13 +29,13 @@ public class attack_audio : PubSubMonoBehaviour
 
     private void Awake()
     {
-        PubSub.GetEvent<PlayerAttack>().Where(e => e.JoystickID == this.PlayerID).Subscribe(e => this.PlayAudio(e));
+        PubSub.GetEvent<PlayerHit>().Where(e => e.PlayerID != this.PlayerID).Subscribe(e => this.PlayAudio(e));
 
     }
 
-    private void PlayAudio(PlayerAttack playerAttack)
+    private void PlayAudio(PlayerHit playerAttack)
     {
-        switch(playerAttack.attackType)
+        switch(playerAttack.AttackType)
             {
             case AttackType.LightPunch:
                 RuntimeManager.PlayOneShot(LightPunchAudio, transform.position);
