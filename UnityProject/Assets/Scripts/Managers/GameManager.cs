@@ -35,9 +35,6 @@ public class GameManager : PubSubMonoBehaviour
         var playerTwo = (GameObject)GameObject.Instantiate(this.PlayerPrefab);
         playerOne.GetComponent<Player>().Id = 2;
 
-        PubSub.Publish<PlayerInitialised>(new PlayerInitialised(1, endCharacterSelect.PlayerOneSelectedCharacter, PlayerMovement.MovementDirection.Right, playerOneSpawnPos, "Player1"));
-        PubSub.Publish<PlayerInitialised>(new PlayerInitialised(2, endCharacterSelect.PlayerTwoSelectedCharacter, PlayerMovement.MovementDirection.Left, playerTwoSpawnPos, "Player2"));
-
    }
 
    private void TimeRanOut(TimeRanOut timeRanOut)
