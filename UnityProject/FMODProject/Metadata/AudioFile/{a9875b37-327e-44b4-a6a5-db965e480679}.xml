@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{a9875b37-327e-44b4-a6a5-db965e480679}">
+        <property name="assetPath">
+            <value>SFX/Gen_JumpTakeoff_1.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>0.24762500000000001</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{14ad7dec-c9f8-4970-9afa-9e0a96a1237e}</destination>
+        </relationship>
+    </object>
+</objects>

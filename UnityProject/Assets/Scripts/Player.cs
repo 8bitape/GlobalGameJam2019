@@ -5,7 +5,7 @@ public class Player : PubSubMonoBehaviour
 {
     [SerializeField]
     private int id;
-    public int Id { get { return this.id; } }
+    public int Id { get { return this.id; } set { this.id = value; } }
 
     private void Awake()
     {
