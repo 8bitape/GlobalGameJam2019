@@ -29,6 +29,11 @@ public class PlayerHealth : PubSubMonoBehaviour
     private void SetHealth(HealthChange healthChange)
     {
         this.CurrentHealth.OnNext(new CurrentPlayerHealth(this.playerID, this.CurrentHealth.Value.Health + healthChange.Amount));
+
+        if(this.CurrentHealth.Value.Health <= 0)
+        {
+            PubSub.Publish<PlayerKnockedOut>(new PlayerKnockedOut(this.playerID));
+        }
     }
 
     private void TakeDamage(PlayerHit playerHit)
