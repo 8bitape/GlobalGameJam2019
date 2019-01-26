@@ -4,13 +4,51 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Actor
+    100004: Armature
+    100006: Chest
+    100008: Foot_L
+    100010: Foot_R
+    100012: Hand_L
+    100014: Hand_R
+    100016: Head
+    100018: LowerArm_L
+    100020: LowerArm_R
+    100022: LowerLeg_L
+    100024: LowerLeg_R
+    100026: Pelvis
+    100028: Root
+    100030: UpperArm_L
+    100032: UpperArm_R
+    100034: UpperLeg_L
+    100036: UpperLeg_R
     400000: //RootNode
+    400002: Actor
+    400004: Armature
+    400006: Chest
+    400008: Foot_L
+    400010: Foot_R
+    400012: Hand_L
+    400014: Hand_R
+    400016: Head
+    400018: LowerArm_L
+    400020: LowerArm_R
+    400022: LowerLeg_L
+    400024: LowerLeg_R
+    400026: Pelvis
+    400028: Root
+    400030: UpperArm_L
+    400032: UpperArm_R
+    400034: UpperLeg_L
+    400036: UpperLeg_R
     2100000: unnamed
     2300000: //RootNode
     3300000: //RootNode
     4300000: Actor
     7400000: Default Take
+    7400002: Pose
     9500000: //RootNode
+    13700000: Actor
   externalObjects: {}
   materials:
     importMaterials: 1
