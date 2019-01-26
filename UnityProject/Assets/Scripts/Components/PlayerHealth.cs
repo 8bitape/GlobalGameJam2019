@@ -28,6 +28,7 @@ public class PlayerHealth : PubSubMonoBehaviour
     }
 
     private void SetHealth(HealthChange healthChange)
+<<<<<<< HEAD
     {
         this.CurrentHealth.OnNext(new CurrentPlayerHealth(this.playerID, this.CurrentHealth.Value.Health + healthChange.Amount));
 
@@ -35,10 +36,14 @@ public class PlayerHealth : PubSubMonoBehaviour
         {
             PubSub.Publish<PlayerKnockedOut>(new PlayerKnockedOut(this.playerID));
         }
+    }
 
+=======
+    {
         this.CurrentHealth.OnNext(new CurrentPlayerHealth(this.playerID, this.CurrentHealth.Value.Health + healthChange.Amount));
     }
 
+>>>>>>> refs/remotes/origin/master
     private void TakeDamage(PlayerHit playerHit)
     {
         switch(playerHit.AttackType)
