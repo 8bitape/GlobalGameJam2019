@@ -414,7 +414,7 @@ MonoBehaviour:
   PlayerID: 1
   LightSwingAudio: event:/SFX/Gen_LightSwing
   HeavySwingAudio: event:/SFX/Gen_HeavySwing
-  Jump: event:/SFX/TBoy_Jump
+  Jump: event:/SFX/Gen_Jump
   Land: event:/SFX/Gen_LightLand
 --- !u!1 &8994365826460512033
 GameObject:
