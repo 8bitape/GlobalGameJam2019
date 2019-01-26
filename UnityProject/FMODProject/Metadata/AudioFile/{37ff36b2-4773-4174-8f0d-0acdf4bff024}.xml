@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="AudioFile" id="{37ff36b2-4773-4174-8f0d-0acdf4bff024}">
         <property name="assetPath">
-            <value>Med_LightKick_1.wav</value>
+            <value>SFX/Med_LightKick_1.wav</value>
         </property>
         <property name="frequencyInKHz">
             <value>48</value>

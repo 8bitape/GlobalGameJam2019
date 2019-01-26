@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="AudioFile" id="{e395e601-6158-4ed3-a99f-d7718ab4175c}">
         <property name="assetPath">
-            <value>Gen_LightLand_1.wav</value>
+            <value>SFX/Gen_LightLand_1.wav</value>
         </property>
         <property name="frequencyInKHz">
             <value>48</value>
