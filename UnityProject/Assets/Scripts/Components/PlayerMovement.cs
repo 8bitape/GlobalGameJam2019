@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRxEventAggregator.Events;
@@ -153,7 +153,6 @@ public class PlayerMovement : PubSubMonoBehaviour
             this.isBlocking = false;
 
             this.Body.velocity = Vector3.zero;
-
             PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, 0));
         }
     }
