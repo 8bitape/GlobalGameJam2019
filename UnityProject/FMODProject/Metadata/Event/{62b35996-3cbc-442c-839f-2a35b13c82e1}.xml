@@ -56,7 +56,7 @@
             <destination>{4e797801-ceb7-44b0-9a71-bcd372462097}</destination>
         </relationship>
         <relationship name="output">
-            <destination>{c9ae1221-7c6c-4555-a2ef-03ee29f44e1b}</destination>
+            <destination>{65d34af4-5662-486e-92c4-9ef26a681c81}</destination>
         </relationship>
     </object>
     <object class="EventAutomatableProperties" id="{7b123de9-4d2c-431d-b233-b87d9b756729}"/>
@@ -143,7 +143,7 @@
     </object>
     <object class="EventMixerGroup" id="{4faccda4-e0e2-4dac-b858-f5d67763d459}">
         <property name="volume">
-            <value>-2</value>
+            <value>-4</value>
         </property>
         <property name="name">
             <value>Battle Music</value>
@@ -167,6 +167,9 @@
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{3f04a594-1bbc-40f8-bd81-a0d745b710f8}">
+        <property name="volume">
+            <value>-2</value>
+        </property>
         <property name="name">
             <value>Gran Countdown</value>
         </property>
@@ -190,7 +193,7 @@
     </object>
     <object class="EventMixerGroup" id="{84700ac7-7d49-466e-8e5f-9195592e5552}">
         <property name="volume">
-            <value>-10.5</value>
+            <value>-11.5</value>
         </property>
         <property name="name">
             <value>Boxing Bell</value>
@@ -256,7 +259,9 @@
     <object class="MixerBusFader" id="{02c9c102-075a-450b-9669-d069ae10f3a1}"/>
     <object class="MixerBusEffectChain" id="{cb094f1c-222a-4fe4-b75e-2397c80140f3}">
         <relationship name="effects">
+            <destination>{60c83b0e-a417-415a-b26d-6c209de3374f}</destination>
             <destination>{397f77d3-3d9a-477f-bf52-a39073544a61}</destination>
+            <destination>{dbffcea4-2a14-44c8-98b7-3e2a9cb2febd}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{26133673-cdb5-4b00-a2e3-efea8b2bc533}"/>
@@ -275,7 +280,44 @@
     </object>
     <object class="MixerBusPanner" id="{b2028e87-4e27-4389-9110-2e4c2a6a5066}"/>
     <object class="MixerBusFader" id="{38c310cb-b6c4-419d-b3a5-8a1d979672e1}"/>
+    <object class="ThreeEQEffect" id="{60c83b0e-a417-415a-b26d-6c209de3374f}">
+        <property name="lowGain">
+            <value>-1</value>
+        </property>
+        <property name="highGain">
+            <value>-2</value>
+        </property>
+        <property name="lowCrossover">
+            <value>220</value>
+        </property>
+        <property name="highCrossover">
+            <value>10000</value>
+        </property>
+    </object>
     <object class="MixerBusFader" id="{397f77d3-3d9a-477f-bf52-a39073544a61}"/>
+    <object class="SFXReverbEffect" id="{dbffcea4-2a14-44c8-98b7-3e2a9cb2febd}">
+        <property name="decayTime">
+            <value>1300</value>
+        </property>
+        <property name="earlyDelay">
+            <value>2</value>
+        </property>
+        <property name="lateDelay">
+            <value>3</value>
+        </property>
+        <property name="HFDecayRatio">
+            <value>83</value>
+        </property>
+        <property name="highCut">
+            <value>6050</value>
+        </property>
+        <property name="earlyLateMix">
+            <value>88</value>
+        </property>
+        <property name="wetLevel">
+            <value>-15</value>
+        </property>
+    </object>
     <object class="MixerBusFader" id="{75561dfc-2d17-4db6-b453-98f1c9256155}"/>
     <object class="LowpassEffect" id="{94a98d9b-d96a-428b-b2b6-11eb46ef8011}">
         <property name="cutoff">
