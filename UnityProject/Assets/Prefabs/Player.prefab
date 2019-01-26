@@ -362,10 +362,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 1
-  moveSpeed: 150
+  moveSpeed: 100
   jumpForce: 9
   canJump: 1
   isJumping: 0
+  isBlocking: 0
   startingMovementDirection: 1
   OpponentObj: {fileID: 0}
 --- !u!114 &8994365826221949056
