@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRxEventAggregator.Events;
 using UniRx;
+using Events;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : PubSubMonoBehaviour
@@ -165,18 +166,24 @@ public class PlayerMovement : PubSubMonoBehaviour
 
     private void Attack(PlayerAttack playerAttack)
     {
+        var opponentID = this.OpponentObj.GetComponent<PlayerMovement>().playerID;
+
         switch(playerAttack.attackType)
         {
-            case PlayerAttack.AttackType.LightPunch:
+            case AttackType.LightPunch:
+                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.LightPunch));
                 break;
 
-            case PlayerAttack.AttackType.HeavyPunch:
+            case AttackType.HeavyPunch:
+                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.HeavyPunch));
                 break;
 
-            case PlayerAttack.AttackType.LightKick:
+            case AttackType.LightKick:
+                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.LightKick));
                 break;
 
-            case PlayerAttack.AttackType.HeavyKick:
+            case AttackType.HeavyKick:
+                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.HeavyKick));
                 break;
         }
     }
