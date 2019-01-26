@@ -1,9 +1,12 @@
-﻿public class PlayerJumpEnd
+﻿namespace Events
 {
-    public int PlayerID { get; set; }
-
-    public PlayerJumpEnd(int playerID)
+    public class PlayerJumpEnd
     {
-        this.PlayerID = playerID;
+        public int PlayerID { get; set; }
+
+        public PlayerJumpEnd(int playerID)
+        {
+            this.PlayerID = playerID;
+        }
     }
 }

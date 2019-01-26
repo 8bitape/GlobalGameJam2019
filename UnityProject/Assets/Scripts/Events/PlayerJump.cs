@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 
-public class PlayerJump
+namespace Events
 {
-    public int JoystickID { get; set; }
-    public Vector3 MoveVector { get; set; }
-
-    public PlayerJump(int joystickID, Vector3 moveVector)
+    public class PlayerJump
     {
-        this.JoystickID = joystickID;
-        this.MoveVector = moveVector;
+        public int JoystickID { get; set; }
+        public Vector3 MoveVector { get; set; }
+
+        public PlayerJump(int joystickID, Vector3 moveVector)
+        {
+            this.JoystickID = joystickID;
+            this.MoveVector = moveVector;
+        }
     }
 }
