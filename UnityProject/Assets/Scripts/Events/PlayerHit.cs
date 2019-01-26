@@ -8,7 +8,7 @@
         public PlayerHit(int playerID, AttackType attackType)
         {
             this.PlayerID = playerID;
-            this.AttackType = AttackType;
+            this.AttackType = attackType;
         }
     }
 }
