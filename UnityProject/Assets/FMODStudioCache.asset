@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 114490011671020720}
-  - {fileID: 114351806504559702}
+  - {fileID: 114574685346493810}
+  - {fileID: 114739466033309550}
   EditorEvents:
   - {fileID: 114180831228443418}
   - {fileID: 114253277052229980}
@@ -32,9 +32,11 @@ MonoBehaviour:
   - {fileID: 114789989633151540}
   MasterBanks:
   - {fileID: 114351806504559702}
+  - {fileID: 114739466033309550}
   StringsBanks:
   - {fileID: 114490011671020720}
-  stringsBankWriteTime: 636841043320000000
+  - {fileID: 114574685346493810}
+  stringsBankWriteTime: 636841064369169511
   cacheVersion: 3
 --- !u!114 &114039451599976938
 MonoBehaviour:
@@ -51,7 +53,7 @@ MonoBehaviour:
   Path: event:/SFX/Gen_LightLand
   guid: efc024b59605d6408a6b85c5921c5c2b
   Banks:
-  - {fileID: 114351806504559702}
+  - {fileID: 114739466033309550}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -74,7 +76,7 @@ MonoBehaviour:
   Path: event:/SFX/Gen_HeavyLand
   guid: 6c0ab7372e31f54a8e2b8728c8824465
   Banks:
-  - {fileID: 114351806504559702}
+  - {fileID: 114739466033309550}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -97,7 +99,7 @@ MonoBehaviour:
   Path: event:/SFX/Gen_LightSwing
   guid: 3f6869c965c3f940aa884be665272075
   Banks:
-  - {fileID: 114351806504559702}
+  - {fileID: 114739466033309550}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -120,7 +122,7 @@ MonoBehaviour:
   Path: event:/SFX/Med_LightKick
   guid: e39dabb28496ea4cbcbc1d409935f945
   Banks:
-  - {fileID: 114351806504559702}
+  - {fileID: 114739466033309550}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -143,7 +145,7 @@ MonoBehaviour:
   Path: event:/SFX/Med_HeavyPunch
   guid: 456453577668f9419b120a2aa5f5b4e3
   Banks:
-  - {fileID: 114351806504559702}
+  - {fileID: 114739466033309550}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -166,7 +168,7 @@ MonoBehaviour:
   Path: event:/SFX/Sml_LightPunch
   guid: 8f9051dca009a543b4e97422364036c4
   Banks:
-  - {fileID: 114351806504559702}
+  - {fileID: 114739466033309550}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -193,7 +195,7 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 63424
-  Exists: 1
+  Exists: 0
 --- !u!114 &114490011671020720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +214,7 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 1372
-  Exists: 1
+  Exists: 0
 --- !u!114 &114498983349615404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +230,7 @@ MonoBehaviour:
   Path: event:/SFX/Sml_HeavyKick
   guid: a4a9789cc132d34c9f2b2749e81d0576
   Banks:
-  - {fileID: 114351806504559702}
+  - {fileID: 114739466033309550}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -236,6 +238,25 @@ MonoBehaviour:
   MinDistance: 10000
   MaxDistance: 10000
   Length: 334
+--- !u!114 &114574685346493810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: FMODProject\Build\Desktop\Master Bank.strings.bank
+  lastModified: 636841064369169511
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1372
+  Exists: 1
 --- !u!114 &114613093086159466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +272,7 @@ MonoBehaviour:
   Path: event:/Music/Battle_Music
   guid: 9659b362bc3c2c44839f2a35b13c82e1
   Banks:
-  - {fileID: 114351806504559702}
+  - {fileID: 114739466033309550}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -274,7 +295,7 @@ MonoBehaviour:
   Path: event:/SFX/Sml_HeavyPunch
   guid: e50b0a0b2d24c74f8ddc958254736b4a
   Banks:
-  - {fileID: 114351806504559702}
+  - {fileID: 114739466033309550}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -297,14 +318,34 @@ MonoBehaviour:
   Path: event:/SFX/TBoy_Jump
   guid: e4523bc88d6dd5488389c761137ac2aa
   Banks:
-  - {fileID: 114351806504559702}
+  - {fileID: 114739466033309550}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 10000
   MaxDistance: 10000
-  Length: 0
+  Length: 220
+--- !u!114 &114739466033309550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\GitHub\GlobalGameJam2019\UnityProject\FMODProject\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636841064369139542
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 65696
+  Exists: 1
 --- !u!114 &114789989633151540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +361,7 @@ MonoBehaviour:
   Path: event:/SFX/Sml_LightKick
   guid: f9ce721ed367434e840579246e5e0b1e
   Banks:
-  - {fileID: 114351806504559702}
+  - {fileID: 114739466033309550}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -366,7 +407,7 @@ MonoBehaviour:
   Path: event:/SFX/Med_HeavyKick
   guid: c01598b957deff4487850a196420b3f2
   Banks:
-  - {fileID: 114351806504559702}
+  - {fileID: 114739466033309550}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -389,7 +430,7 @@ MonoBehaviour:
   Path: event:/SFX/Gen_HeavySwing
   guid: a818085c1e62e14fa723c892040fc582
   Banks:
-  - {fileID: 114351806504559702}
+  - {fileID: 114739466033309550}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -412,7 +453,7 @@ MonoBehaviour:
   Path: event:/SFX/Med_LightPunch
   guid: 8ab4e68228ca5b449626a8e69cb6dd0a
   Banks:
-  - {fileID: 114351806504559702}
+  - {fileID: 114739466033309550}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
