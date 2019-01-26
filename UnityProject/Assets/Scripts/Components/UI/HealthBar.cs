@@ -11,13 +11,6 @@ public class HealthBar : PubSubMonoBehaviour
     public Transform healthBarVisual;
     public int playerID;
 
-    // Convenience utility to choose a random value from an array
-    private T RandomChoice<T>(T[] array)
-    {
-        int index = Random.Range(0, array.Length);
-        return array[index];
-    }
-
     void Awake()
     {
         PubSub.GetEvent<CurrentPlayerHealth>().Where(e=>e.PlayerID == playerID).Subscribe<CurrentPlayerHealth>(this.UpdateHealthBar);
