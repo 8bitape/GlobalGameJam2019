@@ -12,36 +12,9 @@ public class HealthBar : PubSubMonoBehaviour
     public Transform healthBarVisual;
     public int playerID;
 
-    // DEBUG cooldown between simulated damage events (for testing)
-    private float debugCooldown = 1f;
-
-    // Convenience utility to choose a random value from an array
-    private T RandomChoice<T>(T[] array)
-    {
-        int index = Random.Range(0, array.Length);
-        return array[index];
-    }
-
     void Awake()
     {
         PubSub.GetEvent<CurrentPlayerHealth>().Where(e=>e.PlayerID == playerID).Subscribe<CurrentPlayerHealth>(this.UpdateHealthBar);
-    }
-
-    void Update()
-    {
-        //// DEBUG: Randomly generate health drops for testing
-        //debugCooldown -= Time.deltaTime;
-        //if (debugCooldown <= 0f)
-        //{
-        //    debugCooldown = 1f;
-        //    if (Random.Range(0f, 1f) > 0.5f)
-        //    {
-        //        int playerToDamage = this.RandomChoice(new int[] { 1, 2 });
-        //        int damageAmount = Random.Range(0, 10);
-        //        PubSub.Publish<HealthChange>(new HealthChange(playerToDamage, -damageAmount));
-        //    }
-        //}
-        //////
     }
 
     private void UpdateHealthBar(CurrentPlayerHealth health)

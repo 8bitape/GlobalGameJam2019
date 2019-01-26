@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="AudioFile" id="{04530b16-9788-46b6-8e2b-72e2d773e6a0}">
         <property name="assetPath">
-            <value>Gen_LightSwing_2.wav</value>
+            <value>SFX/Gen_LightSwing_2.wav</value>
         </property>
         <property name="frequencyInKHz">
             <value>48</value>
