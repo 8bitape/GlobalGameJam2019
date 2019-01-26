@@ -4,6 +4,7 @@ using UnityEngine;
 using FMODUnity;
 using UniRxEventAggregator.Events;
 using UniRx;
+using Events;
 
 public class fighter_audio : PubSubMonoBehaviour 
 {
@@ -38,16 +39,16 @@ public class fighter_audio : PubSubMonoBehaviour
     {
         switch(playerAttack.attackType)
             {
-            case PlayerAttack.AttackType.LightPunch:
+            case AttackType.LightPunch:
                 RuntimeManager.PlayOneShot(LightSwingAudio, transform.position);
                 break;
-            case PlayerAttack.AttackType.HeavyPunch:
+            case AttackType.HeavyPunch:
                 RuntimeManager.PlayOneShot(HeavySwingAudio, transform.position);
                 break;
-            case PlayerAttack.AttackType.LightKick:
+            case AttackType.LightKick:
                 RuntimeManager.PlayOneShot(LightSwingAudio, transform.position);
                 break;
-            case PlayerAttack.AttackType.HeavyKick:
+            case AttackType.HeavyKick:
                 RuntimeManager.PlayOneShot(HeavySwingAudio, transform.position);
                 break;
         }

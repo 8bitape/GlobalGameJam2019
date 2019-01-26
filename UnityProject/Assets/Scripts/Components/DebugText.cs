@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using UniRxEventAggregator.Events;
+using Events;
 
 [RequireComponent(typeof(Text))]
 public class DebugText : PubSubMonoBehaviour
@@ -23,19 +24,19 @@ public class DebugText : PubSubMonoBehaviour
     {
         switch(playerAttack.attackType)
         {
-            case PlayerAttack.AttackType.LightPunch:
+            case AttackType.LightPunch:
                 this.Text.text = "LIGHT PUNCH";
                 break;
 
-            case PlayerAttack.AttackType.HeavyPunch:
+            case AttackType.HeavyPunch:
                 this.Text.text = "HEAVY PUNCH";
                 break;
 
-            case PlayerAttack.AttackType.LightKick:
+            case AttackType.LightKick:
                 this.Text.text = "LIGHT KICK";
                 break;
 
-            case PlayerAttack.AttackType.HeavyKick:
+            case AttackType.HeavyKick:
                 this.Text.text = "HEAVY KICK";
                 break;
         }

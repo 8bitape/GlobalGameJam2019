@@ -1,11 +1,14 @@
-﻿public class HealthChange
+﻿namespace Events
 {
-    public int playerID { get; set; }
-    public int Amount { get; set; }
-
-    public HealthChange(int playerID, int amount)
+    public class HealthChange
     {
-        this.playerID = playerID;
-        this.Amount = amount;
+        public int playerID { get; set; }
+        public int Amount { get; set; }
+
+        public HealthChange(int playerID, int amount)
+        {
+            this.playerID = playerID;
+            this.Amount = amount;
+        }
     }
 }
