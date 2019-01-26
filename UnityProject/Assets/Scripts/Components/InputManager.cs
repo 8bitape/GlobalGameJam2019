@@ -54,9 +54,6 @@ public class InputManager : PubSubMonoBehaviour
                 {
                     PubSub.Publish<PlayerJump>(new PlayerJump(axisSet.JoystickID, moveVector));
                 }
-
-                // ATTACKINGß
-                // TODO...
             }
         }
 
@@ -65,7 +62,7 @@ public class InputManager : PubSubMonoBehaviour
         {
             foreach(var inputSet in this.InputSets)
             {
-                if(Input.GetButtonDown(inputSet.LightPunch))
+                if (Input.GetButtonDown(inputSet.LightPunch))
                 {
                     PubSub.Publish<PlayerAttack>(new PlayerAttack(inputSet.JoystickID, AttackType.LightPunch));
                 }
