@@ -1,9 +1,12 @@
-﻿public class PlayerJumpStart
+﻿namespace Events
 {
-    public int PlayerID { get; set; }
-
-    public PlayerJumpStart(int playerID)
+    public class PlayerJumpStart
     {
-        this.PlayerID = playerID;
+        public int PlayerID { get; set; }
+
+        public PlayerJumpStart(int playerID)
+        {
+            this.PlayerID = playerID;
+        }
     }
 }

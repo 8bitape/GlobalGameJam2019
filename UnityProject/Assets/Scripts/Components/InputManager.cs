@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UniRxEventAggregator.Events;
+using Events;
 
 public class InputManager : PubSubMonoBehaviour
 {
@@ -53,9 +54,6 @@ public class InputManager : PubSubMonoBehaviour
                 {
                     PubSub.Publish<PlayerJump>(new PlayerJump(axisSet.JoystickID, moveVector));
                 }
-
-                // ATTACKINGß
-                // TODO...
             }
         }
 
@@ -64,24 +62,24 @@ public class InputManager : PubSubMonoBehaviour
         {
             foreach(var inputSet in this.InputSets)
             {
-                if(Input.GetButtonDown(inputSet.LightPunch))
+                if (Input.GetButtonDown(inputSet.LightPunch))
                 {
-                    PubSub.Publish<PlayerAttack>(new PlayerAttack(inputSet.JoystickID, PlayerAttack.AttackType.LightPunch));
+                    PubSub.Publish<PlayerAttack>(new PlayerAttack(inputSet.JoystickID, AttackType.LightPunch));
                 }
 
                 if (Input.GetButtonDown(inputSet.HeavyPunch))
                 {
-                    PubSub.Publish<PlayerAttack>(new PlayerAttack(inputSet.JoystickID, PlayerAttack.AttackType.HeavyPunch));
+                    PubSub.Publish<PlayerAttack>(new PlayerAttack(inputSet.JoystickID, AttackType.HeavyPunch));
                 }
 
                 if (Input.GetButtonDown(inputSet.LightKick))
                 {
-                    PubSub.Publish<PlayerAttack>(new PlayerAttack(inputSet.JoystickID, PlayerAttack.AttackType.LightKick));
+                    PubSub.Publish<PlayerAttack>(new PlayerAttack(inputSet.JoystickID, AttackType.LightKick));
                 }
 
                 if (Input.GetButtonDown(inputSet.HeavyKick))
                 {
-                    PubSub.Publish<PlayerAttack>(new PlayerAttack(inputSet.JoystickID, PlayerAttack.AttackType.HeavyKick));
+                    PubSub.Publish<PlayerAttack>(new PlayerAttack(inputSet.JoystickID, AttackType.HeavyKick));
                 }
             }
         }
