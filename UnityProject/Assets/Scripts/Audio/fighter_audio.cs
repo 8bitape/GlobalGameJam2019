@@ -11,8 +11,6 @@ public class fighter_audio : PubSubMonoBehaviour
     [SerializeField]
     private int PlayerID = 0;
 
-    private int CharacterID = 0;
-
     [Header("Light Swing")]
     [FMODUnity.EventRef]
     public string LightSwingAudio = ("event:/");
@@ -35,12 +33,6 @@ public class fighter_audio : PubSubMonoBehaviour
         PubSub.GetEvent<PlayerAttack>().Where(e => e.JoystickID == this.PlayerID).Subscribe(e => this.PlayAudio(e));
         PubSub.GetEvent<PlayerJumpStart>().Where(e => e.PlayerID == this.PlayerID).Subscribe(e => this.PlayJumpStartAudio(e));
         PubSub.GetEvent<PlayerJumpEnd>().Where(e => e.PlayerID == this.PlayerID).Subscribe(e => this.PlayJumpEndAudio(e));
-    }
-
-    public void Init(int playerID, int characterID)
-    {
-        this.PlayerID = playerID;
-        this.CharacterID = characterID;
     }
 
     private void PlayAudio(PlayerAttack playerAttack)

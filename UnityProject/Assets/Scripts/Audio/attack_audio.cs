@@ -11,8 +11,6 @@ public class attack_audio : PubSubMonoBehaviour
     [SerializeField]
     private int PlayerID = 0;
 
-    private int CharacterID = 0;
-
     [Header("Light Punch")]
     [FMODUnity.EventRef]
     public string LightPunchAudio = ("event:/");
@@ -32,12 +30,7 @@ public class attack_audio : PubSubMonoBehaviour
     private void Awake()
     {
         PubSub.GetEvent<PlayerHit>().Where(e => e.PlayerID != this.PlayerID).Subscribe(e => this.PlayAudio(e));
-    }
 
-    public void Init(int playerID, int characterID)
-    {
-        this.PlayerID = playerID;
-        this.CharacterID = characterID;
     }
 
     private void PlayAudio(PlayerHit playerAttack)
@@ -45,26 +38,18 @@ public class attack_audio : PubSubMonoBehaviour
         switch(playerAttack.AttackType)
             {
             case AttackType.LightPunch:
-                this.PlayAudioWithParameter(this.LightPunchAudio, this.CharacterID);
+                RuntimeManager.PlayOneShot(LightPunchAudio, transform.position);
                 break;
             case AttackType.HeavyPunch:
-                this.PlayAudioWithParameter(this.HeavyPunchAudio, this.CharacterID);
+                RuntimeManager.PlayOneShot(HeavyPunchAudio, transform.position);
                 break;
             case AttackType.LightKick:
-                this.PlayAudioWithParameter(this.LightKickAudio, this.CharacterID);
+                RuntimeManager.PlayOneShot(LightKickAudio, transform.position);
                 break;
             case AttackType.HeavyKick:
-                this.PlayAudioWithParameter(this.HeavyKickAudio, this.CharacterID);
+                RuntimeManager.PlayOneShot(HeavyKickAudio, transform.position);
                 break;
         }
-    }
-
-    private void PlayAudioWithParameter(string FMODEvent, int characterID)
-    {
-        var eventInstance = RuntimeManager.CreateInstance(FMODEvent);
-        eventInstance.setParameterValue("Character", characterID);
-        eventInstance.start();
-        eventInstance.release();
     }
 
 }
