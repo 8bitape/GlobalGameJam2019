@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRxEventAggregator.Events;
 using UniRx;
+using Events;
 
 public class HealthBar : PubSubMonoBehaviour
 {
