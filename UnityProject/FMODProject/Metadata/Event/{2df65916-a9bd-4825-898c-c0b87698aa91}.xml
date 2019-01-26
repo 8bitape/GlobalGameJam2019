@@ -8,7 +8,7 @@
             <value>2</value>
         </property>
         <relationship name="folder">
-            <destination>{f00235ab-7133-41a9-8101-494773dc81e9}</destination>
+            <destination>{65fed477-2169-4199-ac4c-55b1c132535f}</destination>
         </relationship>
         <relationship name="mixer">
             <destination>{47759528-2b23-4ba7-9a76-d9cd4e2579ca}</destination>
@@ -53,7 +53,7 @@
             <destination>{708f6787-d43d-4b65-90cb-855d5d20986f}</destination>
         </relationship>
         <relationship name="output">
-            <destination>{c9ae1221-7c6c-4555-a2ef-03ee29f44e1b}</destination>
+            <destination>{d06bd204-9535-493b-81c2-351407526b89}</destination>
         </relationship>
     </object>
     <object class="EventAutomatableProperties" id="{864e553b-bf74-4180-afa2-1fdaec105221}"/>
@@ -93,7 +93,7 @@
             <value>0.33406249999999998</value>
         </property>
         <property name="pitch">
-            <value>-3.79999995</value>
+            <value>-2.79999995</value>
         </property>
         <relationship name="modulators">
             <destination>{5b868898-ed2e-49ec-955c-12bccf61bff5}</destination>
@@ -105,7 +105,7 @@
     </object>
     <object class="EventMixerGroup" id="{c1c07f4f-f8b7-48fb-ac8c-dbe74a67e082}">
         <property name="volume">
-            <value>-12.5</value>
+            <value>-6</value>
         </property>
         <property name="name">
             <value>Hvy Light Punch</value>
@@ -133,7 +133,7 @@
             <value>pitch</value>
         </property>
         <property name="amount">
-            <value>7.5</value>
+            <value>3.5</value>
         </property>
     </object>
     <object class="SingleSound" id="{b269661a-929b-48f4-b61c-caea07a8229e}">
@@ -167,7 +167,7 @@
     <object class="MixerBusFader" id="{76894280-60c8-480e-9cef-e4037e0508a3}"/>
     <object class="DistortionEffect" id="{54753ab9-c966-4493-9004-e1cade232bdd}">
         <property name="level">
-            <value>0.710000038</value>
+            <value>0.470000029</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{a897aa5b-c3ad-4bbf-96af-796d199c1f60}"/>

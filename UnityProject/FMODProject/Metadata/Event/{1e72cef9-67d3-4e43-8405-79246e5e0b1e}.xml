@@ -8,7 +8,7 @@
             <value>2</value>
         </property>
         <relationship name="folder">
-            <destination>{f00235ab-7133-41a9-8101-494773dc81e9}</destination>
+            <destination>{65fed477-2169-4199-ac4c-55b1c132535f}</destination>
         </relationship>
         <relationship name="mixer">
             <destination>{225a8dd8-88be-4d61-bbd3-7d91acfa3a11}</destination>
@@ -53,7 +53,7 @@
             <destination>{b68061d5-92f2-4037-8ea7-ed595c21125e}</destination>
         </relationship>
         <relationship name="output">
-            <destination>{c9ae1221-7c6c-4555-a2ef-03ee29f44e1b}</destination>
+            <destination>{d06bd204-9535-493b-81c2-351407526b89}</destination>
         </relationship>
     </object>
     <object class="EventAutomatableProperties" id="{c4b140ff-46ec-45cb-9035-bc331f6a4b3c}"/>
@@ -105,7 +105,7 @@
     </object>
     <object class="EventMixerGroup" id="{ddc03253-ec0b-4712-8fb7-abf1859a74a2}">
         <property name="name">
-            <value>Med Light Kick</value>
+            <value>Sml Light Kick</value>
         </property>
         <relationship name="effectChain">
             <destination>{5d5effdf-7c4c-4dc6-a6e6-adbc46bcc667}</destination>
