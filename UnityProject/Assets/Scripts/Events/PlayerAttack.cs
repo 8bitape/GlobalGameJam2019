@@ -1,7 +1,5 @@
 ﻿namespace Events
 {
-    public enum AttackType { LightPunch, HeavyPunch, LightKick, HeavyKick }
-
     public class PlayerAttack
     {
         public int JoystickID { get; set; }

@@ -860,12 +860,12 @@ PrefabInstance:
     - target: {fileID: 2387476368548836044, guid: 687f111305280404586fc5924633a97c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 338
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2387476368548836044, guid: 687f111305280404586fc5924633a97c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 190
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2387476368548836044, guid: 687f111305280404586fc5924633a97c,
         type: 3}
@@ -1171,12 +1171,12 @@ PrefabInstance:
     - target: {fileID: 8069866715611084383, guid: 5bb4f4c644aad2d4b9fe99d2087c5543,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 338
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8069866715611084383, guid: 5bb4f4c644aad2d4b9fe99d2087c5543,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 190
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8069866715611084383, guid: 5bb4f4c644aad2d4b9fe99d2087c5543,
         type: 3}
@@ -1222,11 +1222,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8069866715611084380, guid: 5bb4f4c644aad2d4b9fe99d2087c5543,
-        type: 3}
-      propertyPath: MenuMusic
-      value: event:/Music/Battle_Music
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bb4f4c644aad2d4b9fe99d2087c5543, type: 3}

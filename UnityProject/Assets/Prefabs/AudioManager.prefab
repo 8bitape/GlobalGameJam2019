@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8069866715611084383}
   - component: {fileID: 8069866715611084380}
+  - component: {fileID: 2973966412432055999}
+  - component: {fileID: 4940336105696687704}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -43,5 +45,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d108731bb32404e9e309976baf996e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuMusic: event:/
+  MenuMusic: event:/Music/Battle_Music
   BattleMusic: event:/Music/Battle_Music
+--- !u!114 &2973966412432055999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8069866715611084381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbab6c8f4be33440488635be8fadc76c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LightSwingAudio: event:/SFX/Gen_LightSwing
+  HeavySwingAudio: event:/SFX/Gen_HeavySwing
+  Jump: event:/SFX/Gen_Jump
+  Land: event:/SFX/Gen_LightLand
+--- !u!114 &4940336105696687704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8069866715611084381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227984ac725ba423a89b13a471ef1846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LightPunchAudio: event:/SFX/LightPunch
+  HeavyPunchAudio: event:/SFX/HeavyPunch
+  LightKickAudio: event:/SFX/LightKick
+  HeavyKickAudio: event:/SFX/HeavyKick

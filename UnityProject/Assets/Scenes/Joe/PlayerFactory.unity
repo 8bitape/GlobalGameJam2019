@@ -1223,10 +1223,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8069866715611084380, guid: 5bb4f4c644aad2d4b9fe99d2087c5543,
-        type: 3}
-      propertyPath: MenuMusic
-      value: event:/Music/Battle_Music
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bb4f4c644aad2d4b9fe99d2087c5543, type: 3}
