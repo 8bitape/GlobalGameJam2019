@@ -79,6 +79,8 @@ public class PlayerMovement : PubSubMonoBehaviour
             this.Body.AddForce(new Vector3(0.0f, this.jumpForce, 0.0f), ForceMode.Impulse);
             this.canJump = false;
             this.isJumping = true;
+
+            PubSub.Publish<PlayerJumpStart>(new PlayerJumpStart(this.playerID));
         }
     }
 
@@ -100,6 +102,11 @@ public class PlayerMovement : PubSubMonoBehaviour
         }
     }
 
+    private void Flip()
+    {
+        this.transform.localScale = new Vector3(-this.transform.localScale.x, this.transform.localScale.y, this.transform.localScale.z);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         switch(collision.collider.tag)
@@ -109,8 +116,30 @@ public class PlayerMovement : PubSubMonoBehaviour
                 {
                     this.canJump = true;
                     this.isJumping = false;
+
+                    PubSub.Publish<PlayerJumpEnd>(new PlayerJumpEnd(this.playerID));
                 }
                 break;
+        }
+    }
+
+    private void OnTriggerExit(Collider collider)
+    {
+        if(collider.tag == "FlipCollider")
+        {
+            var playerXPos = this.transform.position.x;
+            var colliderXPos = collider.transform.parent.transform.position.x;
+
+            if(playerXPos > colliderXPos && this.currentMovementDirection != MovementDirection.Right)
+            {
+                this.Flip();
+                collider.transform.parent.GetComponent<PlayerMovement>().Flip();
+            }
+            else if(playerXPos < colliderXPos && this.currentMovementDirection != MovementDirection.Left)
+            {
+                this.Flip();
+                collider.transform.parent.GetComponent<PlayerMovement>().Flip();
+            }
         }
     }
 }
