@@ -406,14 +406,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerID: 1
-  LightSwingAudio: event:/
-  HeavySwingAudio: event:/
-  Jump: event:/
-  Land: event:/
-  LightPunchAudio: event:/
-  HeavyPunchAudio: event:/
-  LightKickAudio: event:/
-  HeavyKickAudio: event:/
+  LightPunchAudio: event:/SFX/Med_LightPunch
+  HeavyPunchAudio: event:/SFX/Med_HeavyPunch
+  LightKickAudio: event:/SFX/Med_LightKick
+  HeavyKickAudio: event:/SFX/Med_HeavyKick
 --- !u!114 &3359357597613263878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,12 +425,8 @@ MonoBehaviour:
   PlayerID: 1
   LightSwingAudio: event:/SFX/Gen_LightSwing
   HeavySwingAudio: event:/SFX/Gen_HeavySwing
-  Jump: event:/SFX/Med_Jump
+  Jump: event:/SFX/TBoy_Jump
   Land: event:/SFX/Gen_LightLand
-  LightPunchAudio: event:/
-  HeavyPunchAudio: event:/
-  LightKickAudio: event:/
-  HeavyKickAudio: event:/
 --- !u!1 &8994365826460512033
 GameObject:
   m_ObjectHideFlags: 0

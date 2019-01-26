@@ -155,10 +155,10 @@
     <object class="MixerBusPanner" id="{8d865faa-1ab2-4b86-a1c0-2397ef08e197}"/>
     <object class="SpatialiserEffect" id="{94e7b443-d632-4f0c-9044-72c586d0ed12}">
         <property name="minimumDistance">
-            <value>9800</value>
+            <value>10000</value>
         </property>
         <property name="maximumDistance">
-            <value>9800</value>
+            <value>10000</value>
         </property>
         <property name="extentMode">
             <value>2</value>

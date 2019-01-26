@@ -167,10 +167,10 @@
     </object>
     <object class="SpatialiserEffect" id="{f560d3d3-57d2-43f5-a59b-6f7b62abde41}">
         <property name="minimumDistance">
-            <value>9800</value>
+            <value>10000</value>
         </property>
         <property name="maximumDistance">
-            <value>9800</value>
+            <value>10000</value>
         </property>
         <property name="extentMode">
             <value>2</value>
