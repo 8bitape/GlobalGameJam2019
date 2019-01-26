@@ -15,7 +15,8 @@ public class GameManager : PubSubMonoBehaviour
 
     private void Start()
     {
-        PubSub.Publish<StartCharacterSelect>(new StartCharacterSelect());
+        PubSub.Publish(new GameStart());
+        PubSub.Publish(new StartCharacterSelect());
     }
 
     private void TimeRanOut(TimeRanOut timeRanOut)
