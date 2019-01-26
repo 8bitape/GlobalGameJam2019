@@ -30,12 +30,40 @@ MonoBehaviour:
   - {fileID: 114720955642967030}
   - {fileID: 114701250589010904}
   - {fileID: 114789989633151540}
+  - {fileID: 114245787456519566}
+  - {fileID: 114270085241968810}
+  - {fileID: 114575912682833506}
+  - {fileID: 114034263769556564}
+  - {fileID: 114805342358951620}
   MasterBanks:
   - {fileID: 114351806504559702}
   StringsBanks:
   - {fileID: 114490011671020720}
-  stringsBankWriteTime: 636841043320000000
+  stringsBankWriteTime: 636841148650000000
   cacheVersion: 3
+--- !u!114 &114034263769556564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Hvy_HeavyKick
+  guid: 711e60ebeb57cf4ab35b858e3134edef
+  Banks:
+  - {fileID: 114351806504559702}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 10000
+  MaxDistance: 10000
+  Length: 334
 --- !u!114 &114039451599976938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +156,29 @@ MonoBehaviour:
   MinDistance: 10000
   MaxDistance: 10000
   Length: 359
+--- !u!114 &114245787456519566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Hvy_LightKick
+  guid: 03b63471f4063144ae19a90df03e14d6
+  Banks:
+  - {fileID: 114351806504559702}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 10000
+  MaxDistance: 10000
+  Length: 359
 --- !u!114 &114253277052229980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +193,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/Med_HeavyPunch
   guid: 456453577668f9419b120a2aa5f5b4e3
+  Banks:
+  - {fileID: 114351806504559702}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 10000
+  MaxDistance: 10000
+  Length: 334
+--- !u!114 &114270085241968810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Hvy_LightPunch
+  guid: 1659f62dbda92548898cc0b87698aa91
   Banks:
   - {fileID: 114351806504559702}
   IsStream: 0
@@ -188,11 +262,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: /Users/alexgreen/Documents/GitHub/GlobalGameJam2019/UnityProject/FMODProject/Build/Desktop/Master
     Bank.bank
-  lastModified: 636841043320000000
+  lastModified: 636841148650000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 63424
+    Value: 72480
   Exists: 1
 --- !u!114 &114490011671020720
 MonoBehaviour:
@@ -207,11 +281,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: FMODProject/Build/Desktop/Master Bank.strings.bank
-  lastModified: 636841043320000000
+  lastModified: 636841148650000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1372
+    Value: 1628
   Exists: 1
 --- !u!114 &114498983349615404
 MonoBehaviour:
@@ -236,6 +310,29 @@ MonoBehaviour:
   MinDistance: 10000
   MaxDistance: 10000
   Length: 334
+--- !u!114 &114575912682833506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/CharacterSelect_Music
+  guid: 1debb008e1bfd24a87eed2c376a130c0
+  Banks:
+  - {fileID: 114351806504559702}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &114613093086159466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,7 +355,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 2000
+  Length: 0
 --- !u!114 &114701250589010904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +401,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 10000
   MaxDistance: 10000
-  Length: 0
+  Length: 220
 --- !u!114 &114789989633151540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +448,29 @@ MonoBehaviour:
   MinDistance: 9800
   MaxDistance: 9800
   Length: 0
+--- !u!114 &114805342358951620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Hvy_HeavyPunch
+  guid: f2d1156cfca61e419b9c21f3ddbd1a3a
+  Banks:
+  - {fileID: 114351806504559702}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 10000
+  MaxDistance: 10000
+  Length: 334
 --- !u!114 &114841123819494460
 MonoBehaviour:
   m_ObjectHideFlags: 0
