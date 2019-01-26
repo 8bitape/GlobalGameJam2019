@@ -102,7 +102,7 @@
     </object>
     <object class="EventMixerGroup" id="{f45bdaf9-9cec-4cb3-9783-c08bf22ec2e0}">
         <property name="name">
-            <value>Med Heavy Kick</value>
+            <value>Sml Heavy Kick</value>
         </property>
         <relationship name="effectChain">
             <destination>{5877a623-4e9c-4341-8a63-b242c3fdfcaf}</destination>
@@ -154,12 +154,12 @@
     <object class="MixerBusPanner" id="{341f2264-5fdb-4d8b-9ad3-11a20dadbd90}"/>
     <object class="HighpassSimpleEffect" id="{554d1ff1-2974-425e-a079-62bceecda5f8}">
         <property name="cutoff">
-            <value>260</value>
+            <value>140</value>
         </property>
     </object>
     <object class="LowpassSimpleEffect" id="{e43f03a9-ad83-46d0-9eb6-76e5f5815c06}">
         <property name="cutoff">
-            <value>13000</value>
+            <value>14500</value>
         </property>
     </object>
     <object class="SpatialiserEffect" id="{03165fa3-f6ae-46ac-bafe-23a940f4957a}">
