@@ -16,31 +16,47 @@ MonoBehaviour:
   - {fileID: 114883262888588242}
   - {fileID: 114240581065225464}
   EditorEvents:
-  - {fileID: 114483528248078746}
-  - {fileID: 114510267025670744}
   - {fileID: 114737553411530456}
   - {fileID: 114972348203023738}
-  - {fileID: 114951033721884330}
   - {fileID: 114300299237483382}
-  - {fileID: 114336615753967184}
-  - {fileID: 114237981936230492}
-  - {fileID: 114856251886623464}
   - {fileID: 114987029522564860}
-  - {fileID: 114680533373745806}
   - {fileID: 114053851900871590}
-  - {fileID: 114904050489280678}
-  - {fileID: 114271415436952386}
-  - {fileID: 114899588417285838}
   - {fileID: 114287253746395436}
-  - {fileID: 114891969192603682}
-  - {fileID: 114458071340046446}
   - {fileID: 114296885553566718}
+  - {fileID: 114359436936865084}
+  - {fileID: 114864070093319714}
+  - {fileID: 114456037315014462}
+  - {fileID: 114479823252394298}
+  - {fileID: 114220677766001958}
+  - {fileID: 114291551298773694}
+  - {fileID: 114446750294333842}
+  - {fileID: 114333795615970028}
+  - {fileID: 114959949601164374}
+  - {fileID: 114913504010777450}
+  - {fileID: 114674450260090680}
+  - {fileID: 114901840688776048}
   MasterBanks:
   - {fileID: 114240581065225464}
   StringsBanks:
   - {fileID: 114883262888588242}
-  stringsBankWriteTime: 636841223110000000
+  stringsBankWriteTime: 636841278340000000
   cacheVersion: 3
+--- !u!114 &114051367186019396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CharacterID
+  Min: 0
+  Max: 3
+  Default: 0
 --- !u!114 &114053851900871590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,6 +80,46 @@ MonoBehaviour:
   MinDistance: 10000
   MaxDistance: 10000
   Length: 92
+--- !u!114 &114098187236342884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CharacterID
+  Min: 0
+  Max: 3
+  Default: 0
+--- !u!114 &114220677766001958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/LightPunch
+  guid: 8ab4e68228ca5b449626a8e69cb6dd0a
+  Banks:
+  - {fileID: 114240581065225464}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 114846127412274244}
+  MinDistance: 10000
+  MaxDistance: 10000
+  Length: 0
 --- !u!114 &114237981936230492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,11 +157,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: /Users/alexgreen/Documents/GitHub/GlobalGameJam2019/UnityProject/FMODProject/Build/Desktop/Master
     Bank.bank
-  lastModified: 636841223110000000
+  lastModified: 636841278340000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1609984
+    Value: 1644736
   Exists: 1
 --- !u!114 &114271415436952386
 MonoBehaviour:
@@ -130,6 +186,22 @@ MonoBehaviour:
   MinDistance: 10000
   MaxDistance: 10000
   Length: 359
+--- !u!114 &114273284357581944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CharacterID
+  Min: 0
+  Max: 3
+  Default: 0
 --- !u!114 &114287253746395436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +225,29 @@ MonoBehaviour:
   MinDistance: 10000
   MaxDistance: 10000
   Length: 210
+--- !u!114 &114291551298773694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/OldCombatEvents/Sml_LightPunch
+  guid: 8f9051dca009a543b4e97422364036c4
+  Banks:
+  - {fileID: 114240581065225464}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 10000
+  MaxDistance: 10000
+  Length: 334
 --- !u!114 &114296885553566718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +270,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 10000
   MaxDistance: 10000
-  Length: 247
+  Length: 118
 --- !u!114 &114300299237483382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +294,30 @@ MonoBehaviour:
   MinDistance: 10000
   MaxDistance: 10000
   Length: 420
+--- !u!114 &114333795615970028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/HeavyKick
+  guid: c01598b957deff4487850a196420b3f2
+  Banks:
+  - {fileID: 114240581065225464}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 114774750771906972}
+  MinDistance: 10000
+  MaxDistance: 10000
+  Length: 0
 --- !u!114 &114336615753967184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +338,92 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters: []
+  MinDistance: 10000
+  MaxDistance: 10000
+  Length: 334
+--- !u!114 &114346393998683252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CharacterID
+  Min: 0
+  Max: 3
+  Default: 0
+--- !u!114 &114359436936865084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/OldCombatEvents/Hvy_LightKick
+  guid: 03b63471f4063144ae19a90df03e14d6
+  Banks:
+  - {fileID: 114240581065225464}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 10000
+  MaxDistance: 10000
+  Length: 359
+--- !u!114 &114446750294333842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/OldCombatEvents/Sml_HeavyKick
+  guid: a4a9789cc132d34c9f2b2749e81d0576
+  Banks:
+  - {fileID: 114240581065225464}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 10000
+  MaxDistance: 10000
+  Length: 334
+--- !u!114 &114456037315014462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/HeavyPunch
+  guid: 456453577668f9419b120a2aa5f5b4e3
+  Banks:
+  - {fileID: 114240581065225464}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 114346393998683252}
   MinDistance: 10000
   MaxDistance: 10000
   Length: 334
@@ -245,6 +450,29 @@ MonoBehaviour:
   MinDistance: 10000
   MaxDistance: 10000
   Length: 359
+--- !u!114 &114479823252394298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/OldCombatEvents/Hvy_HeavyKick
+  guid: 711e60ebeb57cf4ab35b858e3134edef
+  Banks:
+  - {fileID: 114240581065225464}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 10000
+  MaxDistance: 10000
+  Length: 334
 --- !u!114 &114483528248078746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,6 +510,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/Hvy_LightPunch
   guid: 1659f62dbda92548898cc0b87698aa91
+  Banks:
+  - {fileID: 114240581065225464}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 10000
+  MaxDistance: 10000
+  Length: 334
+--- !u!114 &114674450260090680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/OldCombatEvents/Hvy_HeavyPunch
+  guid: f2d1156cfca61e419b9c21f3ddbd1a3a
   Banks:
   - {fileID: 114240581065225464}
   IsStream: 0
@@ -337,6 +588,54 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &114774750771906972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CharacterID
+  Min: 0
+  Max: 3
+  Default: 0
+--- !u!114 &114802323031913504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CharacterID
+  Min: 0
+  Max: 3
+  Default: 0
+--- !u!114 &114846127412274244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CharacterID
+  Min: 0
+  Max: 3
+  Default: 0
 --- !u!114 &114856251886623464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,6 +659,45 @@ MonoBehaviour:
   MinDistance: 10000
   MaxDistance: 10000
   Length: 334
+--- !u!114 &114864070093319714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/OldCombatEvents/Hvy_LightPunch
+  guid: 1659f62dbda92548898cc0b87698aa91
+  Banks:
+  - {fileID: 114240581065225464}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 10000
+  MaxDistance: 10000
+  Length: 334
+--- !u!114 &114873497068647892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CharacterID
+  Min: 0
+  Max: 3
+  Default: 0
 --- !u!114 &114883262888588242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,11 +711,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: FMODProject/Build/Desktop/Master Bank.strings.bank
-  lastModified: 636841223110000000
+  lastModified: 636841278340000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1694
+    Value: 1706
   Exists: 1
 --- !u!114 &114891969192603682
 MonoBehaviour:
@@ -425,6 +763,29 @@ MonoBehaviour:
   MinDistance: 10000
   MaxDistance: 10000
   Length: 334
+--- !u!114 &114901840688776048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/OldCombatEvents/Sml_LightKick
+  guid: f9ce721ed367434e840579246e5e0b1e
+  Banks:
+  - {fileID: 114240581065225464}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 10000
+  MaxDistance: 10000
+  Length: 359
 --- !u!114 &114904050489280678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,6 +800,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/Med_HeavyKick
   guid: c01598b957deff4487850a196420b3f2
+  Banks:
+  - {fileID: 114240581065225464}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 10000
+  MaxDistance: 10000
+  Length: 334
+--- !u!114 &114913504010777450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/OldCombatEvents/Sml_HeavyPunch
+  guid: e50b0a0b2d24c74f8ddc958254736b4a
   Banks:
   - {fileID: 114240581065225464}
   IsStream: 0
@@ -471,6 +855,30 @@ MonoBehaviour:
   MinDistance: 10000
   MaxDistance: 10000
   Length: 334
+--- !u!114 &114959949601164374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/LightKick
+  guid: e39dabb28496ea4cbcbc1d409935f945
+  Banks:
+  - {fileID: 114240581065225464}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 114273284357581944}
+  MinDistance: 10000
+  MaxDistance: 10000
+  Length: 0
 --- !u!114 &114972348203023738
 MonoBehaviour:
   m_ObjectHideFlags: 0
