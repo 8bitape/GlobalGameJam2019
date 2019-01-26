@@ -1,81 +1,89 @@
-﻿﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UniRxEventAggregator.Events;
 using UniRx;
 using Events;
 
-[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : PubSubMonoBehaviour
 {
-    public enum MovementDirection { Left, Right, Up, Down, None }
+    private int PlayerId { get; set; }
 
-    [SerializeField]
-    private int playerID = 0;
+    private float MoveSpeed { get; set; }
 
-    [SerializeField]
-    private float moveSpeed = 0.0f;
+    private float JumpForce { get; set; }
 
-    [SerializeField]
-    private float jumpForce = 0.0f;
+    private bool CanJump { get; set; }
 
-    [SerializeField]
-    private bool canJump = true;
+    private bool IsJumping { get; set; }
 
-    [SerializeField]
-    private bool isJumping = false;
+    private bool IsBlocking { get; set; }
 
-    [SerializeField]
-    private bool isBlocking = false;
+    private MovementDirection StartingMovementDirection { get; set; }
 
-    [SerializeField]
-    private MovementDirection startingMovementDirection;
+    private MovementDirection CurrentMovementDirection { get; set; }
 
-    [SerializeField]
-    private MovementDirection currentMovementDirection = MovementDirection.None;
+    private Rigidbody Rigidbody { get; set; }
 
-    private Rigidbody Body;
+    private GameObject OpponentObj { get; set; }
 
-    [SerializeField]
-    private GameObject OpponentObj;
+    private readonly float CAMERA_BOUNDS_PADDING = 0.75f;
+
+    public void Init(Player player)
+    {
+        this.PlayerId = player.Id;
+        this.MoveSpeed = player.MoveSpeed;
+        this.JumpForce = player.JumpForce;
+        this.StartingMovementDirection = player.StartingMovementDirection;
+        this.CurrentMovementDirection = this.StartingMovementDirection;
+    }
 
     private void Awake()
     {
-        this.Body = this.GetComponent<Rigidbody>();
+        this.CanJump = true;
 
-        this.currentMovementDirection = this.startingMovementDirection;
+        this.Rigidbody = this.GetComponent<Rigidbody>();        
 
-        if(this.Body != null)
+        if(this.Rigidbody != null)
         {
-            PubSub.GetEvent<PlayerMove>().Where(e => e.JoystickID == this.playerID).Subscribe(this.Move);
-            PubSub.GetEvent<PlayerJump>().Where(e => e.JoystickID == this.playerID).Subscribe(this.Jump);
-            PubSub.GetEvent<PlayerAttack>().Where(e => e.JoystickID == this.playerID).Subscribe(this.Attack);
-
-            PubSub.GetEvent<PlayerSpawned>().Where(e => e.PlayerID != this.playerID).Subscribe(this.RegisterOpponent);
+            PubSub.GetEvent<PlayerMove>().Where(e => e.JoystickID == this.PlayerId).Subscribe(this.Move);
+            PubSub.GetEvent<PlayerJump>().Where(e => e.JoystickID == this.PlayerId).Subscribe(this.Jump);
+            PubSub.GetEvent<PlayerAttack>().Where(e => e.JoystickID == this.PlayerId).Subscribe(this.Attack);
+            PubSub.GetEvent<PlayerSpawned>().Where(e => e.PlayerID != this.PlayerId).Subscribe(this.RegisterOpponent);
         }
-    }
-
-    private void Start()
-    {
-        PubSub.Publish<PlayerSpawned>(new PlayerSpawned(this.playerID, this.gameObject));
     }
 
     private void Update()
     {
+        this.ClampPositionWithinCameraBounds();
+
         if (this.OpponentObj != null)
         {
             var playerXPos = this.transform.position.x;
             var opponentXPos = this.OpponentObj.transform.position.x;
 
-            if (playerXPos > opponentXPos && this.currentMovementDirection != MovementDirection.Left)
+            if (playerXPos > opponentXPos && this.CurrentMovementDirection != MovementDirection.Left)
             {
                 this.Flip(this.GetFacingDirection());
             }
-            else if (playerXPos < opponentXPos && this.currentMovementDirection != MovementDirection.Right)
+            else if (playerXPos < opponentXPos && this.CurrentMovementDirection != MovementDirection.Right)
             {
                 this.Flip(this.GetFacingDirection());
             }
         }
+    }
+
+    private void ClampPositionWithinCameraBounds()
+    {
+        var dist = (this.transform.position - Camera.main.transform.position).z;
+
+        var leftBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).x;
+        var rightBorder = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, dist)).x;
+        var topBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).y;
+        var bottomBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, dist)).y;
+
+        this.transform.position = new Vector3(
+        Mathf.Clamp(this.transform.position.x, leftBorder + this.CAMERA_BOUNDS_PADDING / 2, rightBorder - this.CAMERA_BOUNDS_PADDING / 2),
+        Mathf.Clamp(this.transform.position.y, topBorder + this.CAMERA_BOUNDS_PADDING / 2, bottomBorder - this.CAMERA_BOUNDS_PADDING / 2),
+        this.transform.position.z);
     }
 
     private void RegisterOpponent(PlayerSpawned playerSpawned)
@@ -87,73 +95,73 @@ public class PlayerMovement : PubSubMonoBehaviour
     {
         if(playerMove.MoveVector.x > 0.0f)
         {
-            if (this.currentMovementDirection != MovementDirection.Right && !this.isJumping)
+            if (this.CurrentMovementDirection != MovementDirection.Right && !this.IsJumping)
             {
-                this.Body.velocity = Vector3.zero;
+                this.Rigidbody.velocity = Vector3.zero;
             }
 
             var newFacingDirection = this.GetFacingDirection();
 
-            if (this.currentMovementDirection != newFacingDirection)
+            if (this.CurrentMovementDirection != newFacingDirection)
             {
                 this.Flip(newFacingDirection);
             }
 
-            if (this.currentMovementDirection == MovementDirection.Right)
+            if (this.CurrentMovementDirection == MovementDirection.Right)
             {
-                this.isBlocking = false;
+                this.IsBlocking = false;
 
-                PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, 1));
+                PubSub.Publish<PlayerMoved>(new PlayerMoved(this.PlayerId, 1));
 
-                this.Body.velocity = new Vector3(playerMove.MoveVector.x * this.moveSpeed * Time.deltaTime, this.Body.velocity.y, 0.0f);
+                this.Rigidbody.velocity = new Vector3(playerMove.MoveVector.x * this.MoveSpeed * Time.deltaTime, this.Rigidbody.velocity.y, 0.0f);
             }
-            else if(this.currentMovementDirection == MovementDirection.Left)
+            else if(this.CurrentMovementDirection == MovementDirection.Left)
             {
-                this.isBlocking = true;
+                this.IsBlocking = true;
 
-                PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, -1));
+                PubSub.Publish<PlayerMoved>(new PlayerMoved(this.PlayerId, -1));
 
-                this.Body.velocity = new Vector3(playerMove.MoveVector.x * (this.moveSpeed /2) * Time.deltaTime, this.Body.velocity.y, 0.0f);
+                this.Rigidbody.velocity = new Vector3(playerMove.MoveVector.x * (this.MoveSpeed /2) * Time.deltaTime, this.Rigidbody.velocity.y, 0.0f);
             }
         }
         else if(playerMove.MoveVector.x < 0.0f)
         { 
-            if (this.currentMovementDirection != MovementDirection.Left && !this.isJumping)
+            if (this.CurrentMovementDirection != MovementDirection.Left && !this.IsJumping)
             {
-                this.Body.velocity = Vector3.zero;
+                this.Rigidbody.velocity = Vector3.zero;
             }
 
             var newFacingDirection = this.GetFacingDirection();
 
-            if(this.currentMovementDirection != newFacingDirection)
+            if(this.CurrentMovementDirection != newFacingDirection)
             {
                 this.Flip(newFacingDirection);
             }
 
             // Publish an event to indicate the direction the player has moved (forwards/backwards)
-            if (this.currentMovementDirection == MovementDirection.Right)
+            if (this.CurrentMovementDirection == MovementDirection.Right)
             {
-                this.isBlocking = true;
+                this.IsBlocking = true;
 
-                PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, -1));
+                PubSub.Publish<PlayerMoved>(new PlayerMoved(this.PlayerId, -1));
 
-                this.Body.velocity = new Vector3(playerMove.MoveVector.x * (this.moveSpeed/2) * Time.deltaTime, this.Body.velocity.y, 0.0f);
+                this.Rigidbody.velocity = new Vector3(playerMove.MoveVector.x * (this.MoveSpeed/2) * Time.deltaTime, this.Rigidbody.velocity.y, 0.0f);
             }
-            else if (this.currentMovementDirection == MovementDirection.Left)
+            else if (this.CurrentMovementDirection == MovementDirection.Left)
             {
-                this.isBlocking = false;
+                this.IsBlocking = false;
 
-                PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, 1));
+                PubSub.Publish<PlayerMoved>(new PlayerMoved(this.PlayerId, 1));
 
-                this.Body.velocity = new Vector3(playerMove.MoveVector.x * this.moveSpeed * Time.deltaTime, this.Body.velocity.y, 0.0f);
+                this.Rigidbody.velocity = new Vector3(playerMove.MoveVector.x * this.MoveSpeed * Time.deltaTime, this.Rigidbody.velocity.y, 0.0f);
             }
         }
-        else if(playerMove.MoveVector == Vector3.zero && !this.isJumping)
+        else if(playerMove.MoveVector == Vector3.zero && !this.IsJumping)
         {
-            this.isBlocking = false;
+            this.IsBlocking = false;
 
-            this.Body.velocity = Vector3.zero;
-            PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, 0));
+            this.Rigidbody.velocity = Vector3.zero;
+            PubSub.Publish<PlayerMoved>(new PlayerMoved(this.PlayerId, 0));
         }
     }
 
@@ -179,20 +187,20 @@ public class PlayerMovement : PubSubMonoBehaviour
 
     private void Jump(PlayerJump playerJump)
     {
-        if(this.canJump)
+        if(this.CanJump)
         {
-            this.Body.velocity = Vector3.zero;
-            this.Body.AddForce(new Vector3(0.0f, this.jumpForce, 0.0f), ForceMode.Impulse);
-            this.canJump = false;
-            this.isJumping = true;
+            this.Rigidbody.velocity = Vector3.zero;
+            this.Rigidbody.AddForce(new Vector3(0.0f, this.JumpForce, 0.0f), ForceMode.Impulse);
+            this.CanJump = false;
+            this.IsJumping = true;
 
-            PubSub.Publish<PlayerJumpStart>(new PlayerJumpStart(this.playerID));
+            PubSub.Publish<PlayerJumpStart>(new PlayerJumpStart(this.PlayerId));
         }
     }
 
     private void Attack(PlayerAttack playerAttack)
     {
-        var opponentID = this.OpponentObj.GetComponent<PlayerMovement>().playerID;
+        var opponentID = this.OpponentObj.GetComponent<PlayerMovement>().PlayerId;
 
         switch(playerAttack.attackType)
         {
@@ -217,7 +225,7 @@ public class PlayerMovement : PubSubMonoBehaviour
     private void Flip(MovementDirection direction)
     {
         this.transform.localScale = new Vector3(this.transform.localScale.x, this.transform.localScale.y, -this.transform.localScale.z);
-        this.currentMovementDirection = direction;
+        this.CurrentMovementDirection = direction;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -225,12 +233,12 @@ public class PlayerMovement : PubSubMonoBehaviour
         switch(collision.collider.tag)
         {
             case "Floor":
-                if(!this.canJump && this.isJumping)
+                if(!this.CanJump && this.IsJumping)
                 {
-                    this.canJump = true;
-                    this.isJumping = false;
+                    this.CanJump = true;
+                    this.IsJumping = false;
 
-                    PubSub.Publish<PlayerJumpEnd>(new PlayerJumpEnd(this.playerID));
+                    PubSub.Publish<PlayerJumpEnd>(new PlayerJumpEnd(this.PlayerId));
                 }
                 break;
         }
