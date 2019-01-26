@@ -89,42 +89,65 @@ public class PlayerMovement : PubSubMonoBehaviour
 
             this.currentMovementDirection = this.GetFacingDirection();
 
+            if(this.currentMovementDirection == MovementDirection.Right)
+            {
+                PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, 1));
+            }
+            else if(this.currentMovementDirection == MovementDirection.Left)
+            {
+                PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, -1));
+            }
+
             this.Body.velocity = new Vector3(playerMove.MoveVector.x * this.moveSpeed * Time.deltaTime, this.Body.velocity.y, 0.0f);
         }
         else if(playerMove.MoveVector.x < 0.0f)
-        {
+        { 
             if (this.currentMovementDirection != MovementDirection.Left && !this.isJumping)
             {
                 this.Body.velocity = Vector3.zero;
             }
 
+            // Determine the player's new facing direction
             this.currentMovementDirection = this.GetFacingDirection();
+
+            // Publish an event to indicate the direction the player has moved (forwards/backwards)
+            if (this.currentMovementDirection == MovementDirection.Right)
+            {
+                PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, -1));
+            }
+            else if (this.currentMovementDirection == MovementDirection.Left)
+            {
+                PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, 1));
+            }
 
             this.Body.velocity = new Vector3(playerMove.MoveVector.x * this.moveSpeed * Time.deltaTime, this.Body.velocity.y, 0.0f);
         }
         else if(playerMove.MoveVector == Vector3.zero && !this.isJumping)
         {
             this.Body.velocity = Vector3.zero;
+
+            PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, 0));
         }
     }
 
     private MovementDirection GetFacingDirection()
     {
-        var playerXPos = this.transform.position.x;
-        var opponentXPos = this.OpponentObj.transform.position.x;
+        if (this.OpponentObj != null)
+        {
+            var playerXPos = this.transform.position.x;
+            var opponentXPos = this.OpponentObj.transform.position.x;
 
-        if (playerXPos > opponentXPos)
-        {
-            return MovementDirection.Left;
+            if (playerXPos > opponentXPos)
+            {
+                return MovementDirection.Left;
+            }
+            else if (playerXPos < opponentXPos)
+            {
+                return MovementDirection.Right;
+            }
         }
-        else if (playerXPos < opponentXPos)
-        {
-            return MovementDirection.Right;
-        }
-        else
-        {
-            return MovementDirection.None;
-        }
+
+        return MovementDirection.None;
     }
 
     private void Jump(PlayerJump playerJump)
@@ -160,7 +183,7 @@ public class PlayerMovement : PubSubMonoBehaviour
 
     private void Flip(MovementDirection direction)
     {
-        this.transform.localScale = new Vector3(-this.transform.localScale.x, this.transform.localScale.y, this.transform.localScale.z);
+        this.transform.localScale = new Vector3(this.transform.localScale.x, this.transform.localScale.y, -this.transform.localScale.z);
         this.currentMovementDirection = direction;
     }
 
