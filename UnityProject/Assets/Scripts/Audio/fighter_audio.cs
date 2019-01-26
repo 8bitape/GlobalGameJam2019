@@ -26,26 +26,12 @@ public class fighter_audio : PubSubMonoBehaviour
     [FMODUnity.EventRef]
     public string Land = ("event:/");
 
-    [Header("Light Punch")]
-    [FMODUnity.EventRef]
-    public string LightPunchAudio = ("event:/");
-
-    [Header("Heavy Punch")]
-    [FMODUnity.EventRef]
-    public string HeavyPunchAudio = ("event:/");
-
-    [Header("Light Kick")]
-    [FMODUnity.EventRef]
-    public string LightKickAudio = ("event:/");
-
-    [Header("Heavy Kick")]
-    [FMODUnity.EventRef]
-    public string HeavyKickAudio = ("event:/");
 
     private void Awake()
     {
         PubSub.GetEvent<PlayerAttack>().Where(e => e.JoystickID == this.PlayerID).Subscribe(e => this.PlayAudio(e));
-
+        PubSub.GetEvent<PlayerJumpStart>().Where(e => e.PlayerID == this.PlayerID).Subscribe(e => this.PlayJumpStartAudio(e));
+        PubSub.GetEvent<PlayerJumpEnd>().Where(e => e.PlayerID == this.PlayerID).Subscribe(e => this.PlayJumpEndAudio(e));
     }
 
     private void PlayAudio(PlayerAttack playerAttack)
@@ -53,22 +39,25 @@ public class fighter_audio : PubSubMonoBehaviour
         switch(playerAttack.attackType)
             {
             case PlayerAttack.AttackType.LightPunch:
-                RuntimeManager.PlayOneShot(LightPunchAudio, transform.position);
                 RuntimeManager.PlayOneShot(LightSwingAudio, transform.position);
                 break;
             case PlayerAttack.AttackType.HeavyPunch:
-                RuntimeManager.PlayOneShot(HeavyPunchAudio, transform.position);
                 RuntimeManager.PlayOneShot(HeavySwingAudio, transform.position);
                 break;
             case PlayerAttack.AttackType.LightKick:
-                RuntimeManager.PlayOneShot(LightKickAudio, transform.position);
                 RuntimeManager.PlayOneShot(LightSwingAudio, transform.position);
                 break;
             case PlayerAttack.AttackType.HeavyKick:
-                RuntimeManager.PlayOneShot(HeavyKickAudio, transform.position);
                 RuntimeManager.PlayOneShot(HeavySwingAudio, transform.position);
                 break;
         }
     }
-
+    private void PlayJumpStartAudio (PlayerJumpStart playerJumpStart)
+    {
+        RuntimeManager.PlayOneShot(Jump, transform.position);
+    }
+    private void PlayJumpEndAudio(PlayerJumpEnd playerJumpEnd)
+    {
+        RuntimeManager.PlayOneShot(Land, transform.position);
+    }
 }
