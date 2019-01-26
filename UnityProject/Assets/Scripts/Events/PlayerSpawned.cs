@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 
-public class PlayerSpawned
+namespace Events
 {
-    public int PlayerID { get; set; }
-    public GameObject Obj { get; set; }
-
-    public PlayerSpawned(int playerID, GameObject obj)
+    public class PlayerSpawned
     {
-        this.PlayerID = playerID;
-        this.Obj = obj;
+        public int PlayerID { get; set; }
+        public GameObject Obj { get; set; }
+
+        public PlayerSpawned(int playerID, GameObject obj)
+        {
+            this.PlayerID = playerID;
+            this.Obj = obj;
+        }
     }
 }

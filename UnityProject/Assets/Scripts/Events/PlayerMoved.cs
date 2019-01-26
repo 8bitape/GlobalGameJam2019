@@ -1,11 +1,14 @@
-﻿public class PlayerMoved
+﻿namespace Events
 {
-    public int Value { get; set; }
-    public int PlayerID { get; set; }
-
-    public PlayerMoved(int playerID, int value)
+    public class PlayerMoved
     {
-        this.PlayerID = playerID;
-        this.Value = value;
+        public int Value { get; set; }
+        public int PlayerID { get; set; }
+
+        public PlayerMoved(int playerID, int value)
+        {
+            this.PlayerID = playerID;
+            this.Value = value;
+        }
     }
 }
