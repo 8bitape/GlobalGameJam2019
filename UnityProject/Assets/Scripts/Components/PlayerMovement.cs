@@ -14,10 +14,10 @@ public class PlayerMovement : PubSubMonoBehaviour
     private int playerID = 0;
 
     [SerializeField]
-    private float moveSpeed = 0.0f;
+    private float moveSpeed = 15.0f;
 
     [SerializeField]
-    private float jumpForce = 0.0f;
+    private float jumpForce = 7.0f;
 
     [SerializeField]
     private bool canJump = true;
@@ -45,7 +45,7 @@ public class PlayerMovement : PubSubMonoBehaviour
 
         this.currentMovementDirection = this.startingMovementDirection;
 
-        if(this.Body != null)
+        if (this.Body != null)
         {
             PubSub.GetEvent<PlayerMove>().Where(e => e.JoystickID == this.playerID).Subscribe(this.Move);
             PubSub.GetEvent<PlayerJump>().Where(e => e.JoystickID == this.playerID).Subscribe(this.Jump);
@@ -58,6 +58,12 @@ public class PlayerMovement : PubSubMonoBehaviour
     private void Start()
     {
         PubSub.Publish<PlayerSpawned>(new PlayerSpawned(this.playerID, this.gameObject));
+        //PubSub.GetEvent<PlayerInitialised>().Where(e => e.PlayerID == this.playerID).Subscribe(this.Init);
+    }
+
+    public void SetPlayerID(int id)
+    {
+        this.playerID = id;
     }
 
     private void Update()
@@ -77,6 +83,27 @@ public class PlayerMovement : PubSubMonoBehaviour
             }
         }
     }
+
+    //private void Init(PlayerInitialised playerInitialised)
+    //{
+    //    this.playerID = playerInitialised.PlayerID;
+    //    this.startingMovementDirection = playerInitialised.StartingDirection;
+
+    //    this.Body = this.GetComponent<Rigidbody>();
+
+    //    this.currentMovementDirection = this.startingMovementDirection;
+
+    //    if (this.Body != null)
+    //    {
+    //        PubSub.GetEvent<PlayerMove>().Where(e => e.JoystickID == this.playerID).Subscribe(this.Move);
+    //        PubSub.GetEvent<PlayerJump>().Where(e => e.JoystickID == this.playerID).Subscribe(this.Jump);
+    //        PubSub.GetEvent<PlayerAttack>().Where(e => e.JoystickID == this.playerID).Subscribe(this.Attack);
+
+    //        PubSub.GetEvent<PlayerSpawned>().Where(e => e.PlayerID != this.playerID).Subscribe(this.RegisterOpponent);
+    //    }
+
+    //    PubSub.Publish<PlayerSpawned>(new PlayerSpawned(this.playerID, this.gameObject));
+    //}
 
     private void RegisterOpponent(PlayerSpawned playerSpawned)
     {
