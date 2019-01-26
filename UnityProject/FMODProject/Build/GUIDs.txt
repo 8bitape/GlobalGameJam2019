@@ -1,0 +1,17 @@
+{62b35996-3cbc-442c-839f-2a35b13c82e1} event:/Music/Battle_Music
+{37b70a6c-312e-4af5-8e2b-8728c8824465} event:/SFX/Gen_HeavyLand
+{5c0818a8-621e-4fe1-a723-c892040fc582} event:/SFX/Gen_HeavySwing
+{b524c0ef-0596-40d6-8a6b-85c5921c5c2b} event:/SFX/Gen_LightLand
+{c969683f-c365-40f9-aa88-4be665272075} event:/SFX/Gen_LightSwing
+{b99815c0-de57-44ff-8785-0a196420b3f2} event:/SFX/Med_HeavyKick
+{57536445-6876-41f9-9b12-0a2aa5f5b4e3} event:/SFX/Med_HeavyPunch
+{b2ab9de3-9684-4cea-bcbc-1d409935f945} event:/SFX/Med_LightKick
+{82e6b48a-ca28-445b-9626-a8e69cb6dd0a} event:/SFX/Med_LightPunch
+{9c78a9a4-32c1-4cd3-9f2b-2749e81d0576} event:/SFX/Sml_HeavyKick
+{0b0a0be5-242d-4fc7-8ddc-958254736b4a} event:/SFX/Sml_HeavyPunch
+{1e72cef9-67d3-4e43-8405-79246e5e0b1e} event:/SFX/Sml_LightKick
+{dc51908f-09a0-43a5-b4e9-7422364036c4} event:/SFX/Sml_LightPunch
+{c83b52e4-6d8d-48d5-8389-c761137ac2aa} event:/SFX/TBoy_Jump
+{c9ae1221-7c6c-4555-a2ef-03ee29f44e1b} bus:/
+{fa27140b-3f41-413f-85c3-08d71f2004a5} bus:/Reverb
+{3791f80a-d870-4ff7-a076-4628de280082} bank:/Master Bank
