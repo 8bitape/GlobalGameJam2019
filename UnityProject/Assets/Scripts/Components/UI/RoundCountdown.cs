@@ -5,13 +5,18 @@ using TMPro;
 
 public class RoundCountdown : MonoBehaviour
 {
-    public TextMeshProUGUI label;
+    // We may not need these, or they may be stored on a game controller
+    // object
     public bool paused = false;
     public bool active = false;
+
+    // Visual text object for the fight round timer
+    private TextMeshProUGUI label;
     private float roundTimeRemaining;
 
-    void Start()
+    void Awake()
     {
+        label = this.GetComponent<TextMeshProUGUI>();
         resetRoundTime();
     }
 
