@@ -9,11 +9,14 @@ public class PlayerHealth : PubSubMonoBehaviour
     [SerializeField]
     private int playerID;
 
+    [SerializeField]
+    private int MaxHealth;
+
     public BehaviorSubject<CurrentPlayerHealth> CurrentHealth { get; private set; }
 
     private void Awake()
     {
-        this.CurrentHealth = new BehaviorSubject<CurrentPlayerHealth>(new CurrentPlayerHealth(this.playerID, 100));
+        this.CurrentHealth = new BehaviorSubject<CurrentPlayerHealth>(new CurrentPlayerHealth(this.playerID, this.MaxHealth));
 
         this.Register(this.CurrentHealth);
 
