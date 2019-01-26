@@ -24,20 +24,58 @@ public class PlayerMovement : PubSubMonoBehaviour
     [SerializeField]
     private bool isJumping = false;
 
+    [SerializeField]
+    private MovementDirection startingMovementDirection;
+
     private MovementDirection currentMovementDirection = MovementDirection.None;
 
     private Rigidbody Body;
 
+    [SerializeField]
+    private GameObject OpponentObj;
+
     private void Awake()
     {
         this.Body = this.GetComponent<Rigidbody>();
+
+        this.currentMovementDirection = this.startingMovementDirection;
 
         if(this.Body != null)
         {
             PubSub.GetEvent<PlayerMove>().Where(e => e.JoystickID == this.playerID).Subscribe(this.Move);
             PubSub.GetEvent<PlayerJump>().Where(e => e.JoystickID == this.playerID).Subscribe(this.Jump);
             PubSub.GetEvent<PlayerAttack>().Where(e => e.JoystickID == this.playerID).Subscribe(this.Attack);
+
+            PubSub.GetEvent<PlayerSpawned>().Where(e => e.PlayerID != this.playerID).Subscribe(this.RegisterOpponent);
         }
+    }
+
+    private void Start()
+    {
+        PubSub.Publish<PlayerSpawned>(new PlayerSpawned(this.playerID, this.gameObject));
+    }
+
+    private void Update()
+    {
+        if (this.OpponentObj != null)
+        {
+            var playerXPos = this.transform.position.x;
+            var opponentXPos = this.OpponentObj.transform.position.x;
+
+            if (playerXPos > opponentXPos && this.currentMovementDirection != MovementDirection.Left)
+            {
+                this.Flip(this.GetFacingDirection());
+            }
+            else if (playerXPos < opponentXPos && this.currentMovementDirection != MovementDirection.Right)
+            {
+                this.Flip(this.GetFacingDirection());
+            }
+        }
+    }
+
+    private void RegisterOpponent(PlayerSpawned playerSpawned)
+    {
+        this.OpponentObj = playerSpawned.Obj;
     }
 
     private void Move(PlayerMove playerMove)
@@ -49,7 +87,7 @@ public class PlayerMovement : PubSubMonoBehaviour
                 this.Body.velocity = Vector3.zero;
             }
 
-            this.currentMovementDirection = MovementDirection.Right;
+            this.currentMovementDirection = this.GetFacingDirection();
 
             this.Body.velocity = new Vector3(playerMove.MoveVector.x * this.moveSpeed * Time.deltaTime, this.Body.velocity.y, 0.0f);
         }
@@ -60,14 +98,32 @@ public class PlayerMovement : PubSubMonoBehaviour
                 this.Body.velocity = Vector3.zero;
             }
 
-            this.currentMovementDirection = MovementDirection.Left;
+            this.currentMovementDirection = this.GetFacingDirection();
 
             this.Body.velocity = new Vector3(playerMove.MoveVector.x * this.moveSpeed * Time.deltaTime, this.Body.velocity.y, 0.0f);
         }
         else if(playerMove.MoveVector == Vector3.zero && !this.isJumping)
         {
             this.Body.velocity = Vector3.zero;
-            this.currentMovementDirection = MovementDirection.None;
+        }
+    }
+
+    private MovementDirection GetFacingDirection()
+    {
+        var playerXPos = this.transform.position.x;
+        var opponentXPos = this.OpponentObj.transform.position.x;
+
+        if (playerXPos > opponentXPos)
+        {
+            return MovementDirection.Left;
+        }
+        else if (playerXPos < opponentXPos)
+        {
+            return MovementDirection.Right;
+        }
+        else
+        {
+            return MovementDirection.None;
         }
     }
 
@@ -102,9 +158,10 @@ public class PlayerMovement : PubSubMonoBehaviour
         }
     }
 
-    private void Flip()
+    private void Flip(MovementDirection direction)
     {
         this.transform.localScale = new Vector3(-this.transform.localScale.x, this.transform.localScale.y, this.transform.localScale.z);
+        this.currentMovementDirection = direction;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -120,26 +177,6 @@ public class PlayerMovement : PubSubMonoBehaviour
                     PubSub.Publish<PlayerJumpEnd>(new PlayerJumpEnd(this.playerID));
                 }
                 break;
-        }
-    }
-
-    private void OnTriggerExit(Collider collider)
-    {
-        if(collider.tag == "FlipCollider")
-        {
-            var playerXPos = this.transform.position.x;
-            var colliderXPos = collider.transform.parent.transform.position.x;
-
-            if(playerXPos > colliderXPos && this.currentMovementDirection != MovementDirection.Right)
-            {
-                this.Flip();
-                collider.transform.parent.GetComponent<PlayerMovement>().Flip();
-            }
-            else if(playerXPos < colliderXPos && this.currentMovementDirection != MovementDirection.Left)
-            {
-                this.Flip();
-                collider.transform.parent.GetComponent<PlayerMovement>().Flip();
-            }
         }
     }
 }
