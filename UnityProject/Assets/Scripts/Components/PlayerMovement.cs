@@ -26,6 +26,9 @@ public class PlayerMovement : PubSubMonoBehaviour
     private bool isJumping = false;
 
     [SerializeField]
+    private bool isBlocking = false;
+
+    [SerializeField]
     private MovementDirection startingMovementDirection;
 
     private MovementDirection currentMovementDirection = MovementDirection.None;
@@ -92,10 +95,14 @@ public class PlayerMovement : PubSubMonoBehaviour
 
             if(this.currentMovementDirection == MovementDirection.Right)
             {
+                this.isBlocking = false;
+
                 PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, 1));
             }
             else if(this.currentMovementDirection == MovementDirection.Left)
             {
+                this.isBlocking = true;
+
                 PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, -1));
             }
 
@@ -114,10 +121,14 @@ public class PlayerMovement : PubSubMonoBehaviour
             // Publish an event to indicate the direction the player has moved (forwards/backwards)
             if (this.currentMovementDirection == MovementDirection.Right)
             {
+                this.isBlocking = true;
+
                 PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, -1));
             }
             else if (this.currentMovementDirection == MovementDirection.Left)
             {
+                this.isBlocking = false;
+
                 PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, 1));
             }
 
@@ -125,6 +136,8 @@ public class PlayerMovement : PubSubMonoBehaviour
         }
         else if(playerMove.MoveVector == Vector3.zero && !this.isJumping)
         {
+            this.isBlocking = false;
+
             this.Body.velocity = Vector3.zero;
 
             PubSub.Publish<PlayerMoved>(new PlayerMoved(this.playerID, 0));
@@ -171,19 +184,19 @@ public class PlayerMovement : PubSubMonoBehaviour
         switch(playerAttack.attackType)
         {
             case AttackType.LightPunch:
-                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.LightPunch));
+                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.LightPunch, false));
                 break;
 
             case AttackType.HeavyPunch:
-                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.HeavyPunch));
+                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.HeavyPunch, false));
                 break;
 
             case AttackType.LightKick:
-                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.LightKick));
+                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.LightKick, false));
                 break;
 
             case AttackType.HeavyKick:
-                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.HeavyKick));
+                PubSub.Publish<PlayerHit>(new PlayerHit(opponentID, AttackType.HeavyKick, false));
                 break;
         }
     }
