@@ -32,6 +32,7 @@ public class fighter_audio : PubSubMonoBehaviour
 
     private void PlayAudio(PlayerAttack playerAttack)
     {
+
         switch(playerAttack.attackType)
             {
             case AttackType.LightPunch:

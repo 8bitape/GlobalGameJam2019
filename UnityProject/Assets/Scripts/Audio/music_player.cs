@@ -22,7 +22,8 @@ public class music_player : PubSubMonoBehaviour
         BattleMusicInst = FMODUnity.RuntimeManager.CreateInstance (BattleMusic);
 
         //TODO Link to battle/menu start/end
-        this.Subscribe<GameStart>(e => this.BattleMusicStart());
+        this.Subscribe<FightStart>(e => this.BattleMusicStart());
+        this.Subscribe<FightOver>(e => this.BattleMusicStop());
     }
 
     private void MenuMusicStart()

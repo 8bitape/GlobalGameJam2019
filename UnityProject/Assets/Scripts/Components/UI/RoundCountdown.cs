@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UniRxEventAggregator.Events;
+using Events;
 
-public class RoundCountdown : MonoBehaviour
+public class RoundCountdown : PubSubMonoBehaviour
 {
     // We may not need these, or they may be stored on a game controller
     // object
@@ -14,10 +16,14 @@ public class RoundCountdown : MonoBehaviour
     private TextMeshProUGUI label;
     private float roundTimeRemaining;
 
+    private readonly int ROUND_DURATION = 60;
+    private readonly int ROUND_DELAY = 5;
+
     void Awake()
     {
         label = this.GetComponent<TextMeshProUGUI>();
-        resetRoundTime();
+
+        this.Subscribe<FightStart>(e => this.resetRoundTime());
     }
 
     // Update is called once per frame
@@ -28,11 +34,16 @@ public class RoundCountdown : MonoBehaviour
         {
             roundTimeRemaining -= Time.deltaTime;
         }
-        label.SetText(roundTimeRemaining.ToString("0"));
+
+        if (roundTimeRemaining <= this.ROUND_DURATION)
+        {
+            label.SetText(roundTimeRemaining.ToString("0"));
+        }        
     }
 
     public void resetRoundTime()
     {
-        roundTimeRemaining = 60f;
+        roundTimeRemaining = this.ROUND_DURATION + this.ROUND_DELAY;
+        label.SetText(this.ROUND_DURATION.ToString("0"));
     }
 }

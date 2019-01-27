@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{31a749c6-d950-4079-a837-1f09baa06389}">
+        <property name="assetPath">
+            <value>Music/Menu Music Layers/Layer 5 - Lead Synths (Menu).wav</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>13.061224489795919</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{14ad7dec-c9f8-4970-9afa-9e0a96a1237e}</destination>
+        </relationship>
+    </object>
+</objects>

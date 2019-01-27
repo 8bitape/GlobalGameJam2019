@@ -92,7 +92,6 @@ public class CharacterSelectUI : PubSubMonoBehaviour
                 playerSelections[PLAYER_2_INDEX]
             )
         );
-        gameObject.SetActive(false);
     }
 
     private void LockInSelection(int playerID)
