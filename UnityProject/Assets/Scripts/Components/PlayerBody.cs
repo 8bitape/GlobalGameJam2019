@@ -6,7 +6,7 @@ using UnityEngine;
 public class Body : PubSubMonoBehaviour
 {
     private Player Player { get; set; }   
-    
+
     private bool IsBlocking { get; set; }
 
     private GameObject HitImpact { get; set; }

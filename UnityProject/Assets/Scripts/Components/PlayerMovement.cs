@@ -32,6 +32,8 @@ public class PlayerMovement : PubSubMonoBehaviour
 
         this.IsBlocking = new BehaviorSubject<CurrentPlayerIsBlocking>(new CurrentPlayerIsBlocking(this.Player, false));
 
+        this.Register(this.IsBlocking);
+
         this.Rigidbody = this.GetComponent<Rigidbody>();
 
         if (this.Rigidbody != null)

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{eedb97b4-3ac2-4305-9a51-d72d73acb3a5}">
+        <property name="assetPath">
+            <value>Music/Sudden Death/Sudden Death.wav</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>78.367346938775512</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{14ad7dec-c9f8-4970-9afa-9e0a96a1237e}</destination>
+        </relationship>
+    </object>
+</objects>
