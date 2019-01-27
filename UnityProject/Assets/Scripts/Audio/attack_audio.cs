@@ -22,6 +22,10 @@ public class attack_audio : PubSubMonoBehaviour
     [FMODUnity.EventRef]
     public string HeavyKickAudio = ("event:/");
 
+    [Header("Block")]
+    [FMODUnity.EventRef]
+    public string BlockAudio = ("event:/");
+
     private void Awake()
     {
         PubSub.GetEvent<PlayerHit>().Subscribe(e => this.PlayAudio(e));
@@ -30,20 +34,29 @@ public class attack_audio : PubSubMonoBehaviour
 
     private void PlayAudio(PlayerHit playerAttack)
     {
-        switch(playerAttack.AttackType)
+
+        if (playerAttack.Blocked)
+        {
+            RuntimeManager.PlayOneShot(BlockAudio, transform.position);
+        }
+        else
+        {
+            switch (playerAttack.AttackType)
             {
-            case AttackType.LightPunch:
-                RuntimeManager.PlayOneShot(LightPunchAudio, transform.position);
-                break;
-            case AttackType.HeavyPunch:
-                RuntimeManager.PlayOneShot(HeavyPunchAudio, transform.position);
-                break;
-            case AttackType.LightKick:
-                RuntimeManager.PlayOneShot(LightKickAudio, transform.position);
-                break;
-            case AttackType.HeavyKick:
-                RuntimeManager.PlayOneShot(HeavyKickAudio, transform.position);
-                break;
+                case AttackType.LightPunch:
+                    RuntimeManager.PlayOneShot(LightPunchAudio, transform.position);
+                    break;
+                case AttackType.HeavyPunch:
+                    RuntimeManager.PlayOneShot(HeavyPunchAudio, transform.position);
+                    break;
+                case AttackType.LightKick:
+                    RuntimeManager.PlayOneShot(LightKickAudio, transform.position);
+                    break;
+                case AttackType.HeavyKick:
+                    RuntimeManager.PlayOneShot(HeavyKickAudio, transform.position);
+                    break;
+            }
+      
         }
     }
 
