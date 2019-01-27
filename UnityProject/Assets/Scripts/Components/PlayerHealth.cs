@@ -19,7 +19,6 @@ public class PlayerHealth : PubSubMonoBehaviour
         PubSub.GetEvent<HealthChange>().Where(e => e.playerID == this.Player.Id).Subscribe(e => this.SetHealth(e));
 
         PubSub.GetEvent<PlayerHit>().Where(e => e.PlayerID == this.Player.Id).Subscribe(e => this.TakeDamage(e));
-
     }
 
     private void SetHealth(HealthChange healthChange)

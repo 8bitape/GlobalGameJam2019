@@ -42,6 +42,11 @@ public class Player : PubSubMonoBehaviour
         this.Body.Init(this);
     }
 
+    private void ResetHealth(EndCharacterSelect endCharacterSelect)
+    {
+        this.PlayerHealth.Init(this);
+    }
+
     private void Awake()
     {
         this.PlayerHealth = this.gameObject.AddComponent<PlayerHealth>();
@@ -65,6 +70,8 @@ public class Player : PubSubMonoBehaviour
         {
             this.RightHand.gameObject.AddComponent<PlayerLimb>().Init(this, AttackType.LightPunch);
         }
+
+        this.Subscribe<EndCharacterSelect>(this.ResetHealth);
     }
 
     private void Start()
