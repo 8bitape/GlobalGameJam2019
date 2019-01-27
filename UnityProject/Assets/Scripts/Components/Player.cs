@@ -36,10 +36,7 @@ public class Player : PubSubMonoBehaviour
 
     public void Reset()
     {
-        this.PlayerHealth.Init(this);
-        this.PlayerMovement.Init(this);
-        this.PlayerOpponent.Init(this);
-        this.Body.Init(this);
+        this.PlayerHealth.Reset();
     }
 
     private void Awake()

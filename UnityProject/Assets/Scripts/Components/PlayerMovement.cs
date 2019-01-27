@@ -110,8 +110,30 @@ public class PlayerMovement : PubSubMonoBehaviour
             return;
         }
 
+        RaycastHit[] hits;
+
         if (playerMove.MoveVector.x > 0.0f)
         {
+            var raySpawnPos = new Vector3(this.transform.position.x, this.transform.position.y + 0.5f, this.transform.position.z);
+
+            hits = Physics.RaycastAll(raySpawnPos, Vector3.right, 0.5f);
+
+            Debug.DrawRay(raySpawnPos, transform.forward, Color.red, 1.0f);
+
+            if (hits.Length > 0)
+            {
+                foreach (var hit in hits)
+                {
+                    if (hit.collider.gameObject.tag == "Player" && hit.collider.gameObject != this.gameObject)
+                    {
+                        this.Rigidbody.velocity = Vector3.zero;
+                        this.Rigidbody.angularVelocity = Vector3.zero;
+
+                        return;
+                    }
+                }
+            }
+
             if (this.CurrentMovementDirection != MovementDirection.Right && !this.IsJumping)
             {
                 this.Rigidbody.velocity = Vector3.zero;
@@ -142,7 +164,27 @@ public class PlayerMovement : PubSubMonoBehaviour
             }
         }
         else if(playerMove.MoveVector.x < 0.0f)
-        { 
+        {
+            var raySpawnPos = new Vector3(this.transform.position.x, this.transform.position.y + 0.5f, this.transform.position.z);
+
+            hits = Physics.RaycastAll(raySpawnPos, Vector3.left, 0.5f);
+
+            Debug.DrawRay(raySpawnPos, transform.forward, Color.red, 1.0f);
+
+            if (hits.Length > 0)
+            {
+                foreach (var hit in hits)
+                {
+                    if (hit.collider.gameObject.tag == "Player" && hit.collider.gameObject != this.gameObject)
+                    {
+                        this.Rigidbody.velocity = Vector3.zero;
+                        this.Rigidbody.angularVelocity = Vector3.zero;
+
+                        return;
+                    }
+                }
+            }
+
             if (this.CurrentMovementDirection != MovementDirection.Left && !this.IsJumping)
             {
                 this.Rigidbody.velocity = Vector3.zero;
