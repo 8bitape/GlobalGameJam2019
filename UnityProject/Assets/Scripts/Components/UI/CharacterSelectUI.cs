@@ -24,6 +24,16 @@ public class CharacterSelectUI : PubSubMonoBehaviour
     private int[] playerSelections = new int[] { 0, 1 };
     private bool[] playerReady = new bool[] { false, false };
 
+    [SerializeField]
+    private InputManager.AxisSet[] AxisSets;
+
+    [SerializeField]
+    private InputManager.InputSet[] InputSets;
+
+    private bool player1StickDown = false;
+    private bool player2StickDown = false;
+
+
     private int GetPlayerIndexFromID(int playerID)
     {
         return playerID - 1;
@@ -57,24 +67,62 @@ public class CharacterSelectUI : PubSubMonoBehaviour
         // DEBUG Player input emulation
         if (!playerReady[PLAYER_1_INDEX])
         {
-            if (Input.GetKeyDown(KeyCode.RightArrow)) MoveSelection(PLAYER_1_ID, 1);
-            if (Input.GetKeyDown(KeyCode.LeftArrow)) MoveSelection(PLAYER_1_ID, -1);
-            if (Input.GetKeyDown(KeyCode.Return)) LockInSelection(PLAYER_1_ID);
+            if (Input.GetAxis(this.AxisSets[0].HorizontalAxis) < 0.0f && !this.player1StickDown)
+            {
+                MoveSelection(PLAYER_1_ID, -1);
+                this.player1StickDown = true;
+            }
+            else if (Input.GetAxis(this.AxisSets[0].HorizontalAxis) > 0.0f && !this.player1StickDown)
+            {
+                MoveSelection(PLAYER_1_ID, 1);
+                this.player1StickDown = true;
+            }
+            else if (Input.GetAxis(this.AxisSets[0].HorizontalAxis) == 0.0f && this.player1StickDown)
+            {
+                this.player1StickDown = false;
+            }
+
+            if ((Input.GetButtonDown(this.InputSets[0].LightPunch)) || (Input.GetButtonDown(this.InputSets[0].LightKick)) || (Input.GetButtonDown(this.InputSets[0].HeavyPunch)) || (Input.GetButtonDown(this.InputSets[0].HeavyKick)))
+            {
+                LockInSelection(PLAYER_1_ID);
+            }
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Return)) UnlockSelection(PLAYER_1_ID);
+            if ((Input.GetButtonDown(this.InputSets[0].LightPunch)) || (Input.GetButtonDown(this.InputSets[0].LightKick)) || (Input.GetButtonDown(this.InputSets[0].HeavyPunch)) || (Input.GetButtonDown(this.InputSets[0].HeavyKick)))
+            {
+                UnlockSelection(PLAYER_1_ID);
+            }
         }
 
         if (!playerReady[PLAYER_2_INDEX])
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow)) MoveSelection(PLAYER_2_ID, 1);
-            if (Input.GetKeyDown(KeyCode.DownArrow)) MoveSelection(PLAYER_2_ID, -1);
-            if (Input.GetKeyDown(KeyCode.KeypadEnter)) LockInSelection(PLAYER_2_ID);
+            if(Input.GetAxis(this.AxisSets[1].HorizontalAxis) < 0.0f && !this.player2StickDown)
+            {
+                MoveSelection(PLAYER_2_ID, -1);
+                player2StickDown = true;
+            }
+            else if(Input.GetAxis(this.AxisSets[1].HorizontalAxis) > 0.0f && !this.player2StickDown)
+            {
+                MoveSelection(PLAYER_2_ID, 1);
+                player2StickDown = true;
+            }
+            else if(Input.GetAxis(this.AxisSets[1].HorizontalAxis) == 0.0f && this.player2StickDown)
+            {
+                this.player2StickDown = false;
+            }
+
+            if ((Input.GetButtonDown(this.InputSets[1].LightPunch)) || (Input.GetButtonDown(this.InputSets[1].LightKick)) || (Input.GetButtonDown(this.InputSets[1].HeavyPunch)) || (Input.GetButtonDown(this.InputSets[1].HeavyKick)))
+            {
+                LockInSelection(PLAYER_2_ID);
+            }
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.KeypadEnter)) UnlockSelection(PLAYER_2_ID);
+            if ((Input.GetButtonDown(this.InputSets[1].LightPunch)) || (Input.GetButtonDown(this.InputSets[1].LightKick)) || (Input.GetButtonDown(this.InputSets[1].HeavyPunch)) || (Input.GetButtonDown(this.InputSets[1].HeavyKick)))
+            {
+                UnlockSelection(PLAYER_2_ID);
+            }
         }
 
         if (playerReady[PLAYER_1_INDEX] && playerReady[PLAYER_2_INDEX])

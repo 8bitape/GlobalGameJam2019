@@ -258,6 +258,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Color: {r: 0.9056604, g: 0.88589036, b: 0.2947668, a: 1}
   player2Color: {r: 0.31011927, g: 0.9528302, b: 0.93293166, a: 1}
+  AxisSets:
+  - JoystickID: 1
+    HorizontalAxis: Horizontal1
+    VerticalAxis: Vertical1
+  - JoystickID: 2
+    HorizontalAxis: Horizontal2
+    VerticalAxis: Vertical2
+  InputSets:
+  - JoystickID: 1
+    LightPunch: LightPunch1
+    HeavyPunch: HeavyPunch1
+    LightKick: LightKick1
+    HeavyKick: HeavyKick1
+  - JoystickID: 2
+    LightPunch: LightPunch2
+    HeavyPunch: HeavyPunch2
+    LightKick: LightKick2
+    HeavyKick: HeavyKick2
 --- !u!1 &850077970638256634
 GameObject:
   m_ObjectHideFlags: 0
