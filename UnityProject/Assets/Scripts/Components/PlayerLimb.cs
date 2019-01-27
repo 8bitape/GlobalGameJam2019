@@ -41,8 +41,8 @@ public class PlayerLimb : PubSubMonoBehaviour
 
     private void InitMeshCollider()
     {
-        var primitive = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        var meshFilter = primitive.GetComponent<MeshFilter>();
+        var hitBox = GameObject.Instantiate(Resources.Load("Prefabs/HitBox")) as GameObject;
+        var meshFilter = hitBox.GetComponent<MeshFilter>();
 
         if (meshFilter != null)
         {
@@ -52,7 +52,7 @@ public class PlayerLimb : PubSubMonoBehaviour
             this.MeshCollider.enabled = false;
         }
 
-        GameObject.Destroy(primitive);
+        GameObject.Destroy(hitBox);
     }
 
     private void Attack(PlayerAttack playerAttack)

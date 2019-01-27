@@ -27,6 +27,7 @@ ModelImporter:
     100042: UpperArm.R
     100044: UpperLeg.L
     100046: UpperLeg.R
+    100048: HitBox
     400000: //RootNode
     400002: Actor
     400004: Armature
@@ -51,12 +52,16 @@ ModelImporter:
     400042: UpperArm.R
     400044: UpperLeg.L
     400046: UpperLeg.R
+    400048: HitBox
     2100000: No Name
     2300000: //RootNode
     2300002: Actor
+    2300004: HitBox
     3300000: //RootNode
     3300002: Actor
+    3300004: HitBox
     4300000: Actor
+    4300002: HitBox
     7400000: Armature|Pose
     7400002: Armature|Idle
     7400004: Armature|Block
