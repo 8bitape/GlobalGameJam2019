@@ -23,6 +23,8 @@ public class PlayerMovement : PubSubMonoBehaviour
     
     private readonly float CAMERA_BOUNDS_PADDING = 0.75f;
 
+    private bool canReceiveInput = false;
+
     public void Init(Player player)
     {
         this.Player = player;
@@ -46,6 +48,9 @@ public class PlayerMovement : PubSubMonoBehaviour
 
         this.Subscribe<FightOver>(e => this.EnableCameraBounds(false));
         this.Subscribe<PlayersSpawned>(e => this.EnableCameraBounds(true));
+
+        this.Subscribe<FightOver>(e => this.EnableInput(false));
+        this.Subscribe<RoundStarted>(e => this.EnableInput(true));
     }
 
     private void Update()
@@ -66,6 +71,11 @@ public class PlayerMovement : PubSubMonoBehaviour
                 this.Flip(this.GetFacingDirection());
             }
         }
+    }
+
+    private void EnableInput(bool isEnabled)
+    {
+        this.canReceiveInput = isEnabled;
     }
 
     private void EnableCameraBounds(bool isEnabled)
@@ -95,7 +105,12 @@ public class PlayerMovement : PubSubMonoBehaviour
 
     private void Move(PlayerMove playerMove)
     {
-        if(playerMove.MoveVector.x > 0.0f)
+        if(!this.canReceiveInput)
+        {
+            return;
+        }
+
+        if (playerMove.MoveVector.x > 0.0f)
         {
             if (this.CurrentMovementDirection != MovementDirection.Right && !this.IsJumping)
             {
@@ -189,7 +204,12 @@ public class PlayerMovement : PubSubMonoBehaviour
 
     private void Jump(PlayerJump playerJump)
     {
-        if(this.CanJump)
+        if(!this.canReceiveInput)
+        {
+            return;
+        }
+
+        if (this.CanJump)
         {
             this.Rigidbody.velocity = Vector3.zero;
             this.Rigidbody.AddForce(new Vector3(0.0f, this.Player.JumpForce, 0.0f), ForceMode.Impulse);

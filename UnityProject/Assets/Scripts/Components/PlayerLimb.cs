@@ -16,6 +16,8 @@ public class PlayerLimb : PubSubMonoBehaviour
 
     private AttackType AttackType { get; set; }
 
+    private bool canReceiveInput = false;
+
     public void Init(Player player, AttackType attackType)
     {
         this.Player = player;
@@ -31,6 +33,14 @@ public class PlayerLimb : PubSubMonoBehaviour
         PubSub.GetEvent<PlayerAttack>().Where(e => e.JoystickID == this.Player.Id).Subscribe(this.Attack);
 
         PubSub.GetEvent<CurrentPlayerOpponent>().Where(e => e.Player == this.Player).Subscribe(e => this.CurrentOpponent = e.Opponent);
+
+        this.Subscribe<FightOver>(e => this.EnableInput(false));
+        this.Subscribe<RoundStarted>(e => this.EnableInput(true));
+    }
+
+    private void EnableInput(bool isEnabled)
+    {
+        this.canReceiveInput = isEnabled;
     }
 
     private void InitRigidBody()
@@ -57,6 +67,11 @@ public class PlayerLimb : PubSubMonoBehaviour
 
     private void Attack(PlayerAttack playerAttack)
     {
+        if(!this.canReceiveInput)
+        {
+            return;
+        }
+
         this.AttackType = playerAttack.attackType;
 
         this.StartCoroutine(this.AttackCoroutine());
