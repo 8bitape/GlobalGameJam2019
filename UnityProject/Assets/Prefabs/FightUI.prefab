@@ -757,7 +757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
-  active: 1
+  active: 0
 --- !u!1 &5561191630534447769
 GameObject:
   m_ObjectHideFlags: 0
