@@ -24,7 +24,7 @@ public class fighter_audio : PubSubMonoBehaviour
 
     [Header("UI Left/Right")]
     [FMODUnity.EventRef]
-    public string UILR = ("event:/");
+    public string UiLR = ("event:/");
 
     [Header("UI Select Punch")]
     [FMODUnity.EventRef]
@@ -38,7 +38,7 @@ public class fighter_audio : PubSubMonoBehaviour
         PubSub.GetEvent<PlayerJumpEnd>().Subscribe(e => this.PlayJumpEndAudio(e));
 
         this.Subscribe<CharacterSelectChange>(e => this.UiLeftRight());
-        this.Subscribe<CharacterSelectReadyChange>(e => this.UISelect());
+        this.Subscribe<CharacterSelectReadyChange>(e => this.UiSelect());
     }
 
     private void PlayAudio(PlayerAttack playerAttack)
@@ -69,11 +69,11 @@ public class fighter_audio : PubSubMonoBehaviour
         RuntimeManager.PlayOneShot(Land, transform.position);
     }
 
-    private void UILeftRight ()
+    private void UiLeftRight ()
     {
         RuntimeManager.PlayOneShot(UiLR, transform.position);
     }
-    private void UISelect()
+    private void UiSelect()
     {
         RuntimeManager.PlayOneShot(SelectPunch, transform.position);
     }

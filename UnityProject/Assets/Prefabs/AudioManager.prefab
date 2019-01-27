@@ -64,6 +64,8 @@ MonoBehaviour:
   HeavySwingAudio: event:/SFX/Gen_HeavySwing
   Jump: event:/SFX/Gen_Jump
   Land: event:/SFX/Gen_LightLand
+  UiLR: event:/UI/CharSelect_LeftRight
+  SelectPunch: event:/UI/CharSelect_SelectPunch
 --- !u!114 &4940336105696687704
 MonoBehaviour:
   m_ObjectHideFlags: 0
