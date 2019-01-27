@@ -18,6 +18,8 @@ public class PlayerMovement : PubSubMonoBehaviour
     private MovementDirection CurrentMovementDirection { get; set; }
 
     private Rigidbody Rigidbody { get; set; }
+
+    private bool IsCameraBoundsActive { get; set; }
     
     private readonly float CAMERA_BOUNDS_PADDING = 0.75f;
 
@@ -41,6 +43,9 @@ public class PlayerMovement : PubSubMonoBehaviour
         }
 
         PubSub.GetEvent<CurrentPlayerOpponent>().Where(e => e.Player == this.Player).Subscribe(e => this.CurrentOpponent = e.Opponent);
+
+        this.Subscribe<FightOver>(e => this.EnableCameraBounds(false));
+        this.Subscribe<PlayersSpawned>(e => this.EnableCameraBounds(true));
     }
 
     private void Update()
@@ -63,8 +68,18 @@ public class PlayerMovement : PubSubMonoBehaviour
         }
     }
 
+    private void EnableCameraBounds(bool isEnabled)
+    {
+        this.IsCameraBoundsActive = isEnabled;
+    }
+
     private void ClampPositionWithinCameraBounds()
     {
+        if (!this.IsCameraBoundsActive)
+        {
+            return;
+        }
+
         var dist = (this.transform.position - Camera.main.transform.position).z;
 
         var leftBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).x;
