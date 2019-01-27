@@ -13,7 +13,7 @@ public class PlayerMovement : PubSubMonoBehaviour
 
     private bool IsJumping { get; set; }
 
-    private bool IsBlocking { get; set; }
+    private BehaviorSubject<CurrentPlayerIsBlocking> IsBlocking { get; set; }
 
     private MovementDirection CurrentMovementDirection { get; set; }
 
@@ -27,6 +27,8 @@ public class PlayerMovement : PubSubMonoBehaviour
         this.CurrentMovementDirection = this.Player.StartingMovementDirection;
 
         this.CanJump = true;
+
+        this.IsBlocking = new BehaviorSubject<CurrentPlayerIsBlocking>(new CurrentPlayerIsBlocking(this.Player, false));
 
         this.Rigidbody = this.GetComponent<Rigidbody>();
 
@@ -92,7 +94,7 @@ public class PlayerMovement : PubSubMonoBehaviour
 
             if (this.CurrentMovementDirection == MovementDirection.Right)
             {
-                this.IsBlocking = false;
+                this.IsBlocking.OnNext(new CurrentPlayerIsBlocking(this.Player, false));
 
                 PubSub.Publish<PlayerMoved>(new PlayerMoved(this.Player.Id, 1));
 
@@ -100,7 +102,7 @@ public class PlayerMovement : PubSubMonoBehaviour
             }
             else if(this.CurrentMovementDirection == MovementDirection.Left)
             {
-                this.IsBlocking = true;
+                this.IsBlocking.OnNext(new CurrentPlayerIsBlocking(this.Player, true));
 
                 PubSub.Publish<PlayerMoved>(new PlayerMoved(this.Player.Id, -1));
 
@@ -124,7 +126,7 @@ public class PlayerMovement : PubSubMonoBehaviour
             // Publish an event to indicate the direction the player has moved (forwards/backwards)
             if (this.CurrentMovementDirection == MovementDirection.Right)
             {
-                this.IsBlocking = true;
+                this.IsBlocking.OnNext(new CurrentPlayerIsBlocking(this.Player, true));
 
                 PubSub.Publish<PlayerMoved>(new PlayerMoved(this.Player.Id, -1));
 
@@ -132,7 +134,7 @@ public class PlayerMovement : PubSubMonoBehaviour
             }
             else if (this.CurrentMovementDirection == MovementDirection.Left)
             {
-                this.IsBlocking = false;
+                this.IsBlocking.OnNext(new CurrentPlayerIsBlocking(this.Player, false));
 
                 PubSub.Publish<PlayerMoved>(new PlayerMoved(this.Player.Id, 1));
 
@@ -141,7 +143,7 @@ public class PlayerMovement : PubSubMonoBehaviour
         }
         else if(playerMove.MoveVector == Vector3.zero && !this.IsJumping)
         {
-            this.IsBlocking = false;
+            this.IsBlocking.OnNext(new CurrentPlayerIsBlocking(this.Player, false));
 
             this.Rigidbody.velocity = Vector3.zero;
             PubSub.Publish<PlayerMoved>(new PlayerMoved(this.Player.Id, 0));
