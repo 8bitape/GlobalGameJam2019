@@ -44,17 +44,27 @@ public class CharacterSelectUI : PubSubMonoBehaviour
         return (playerID == 1 ? player1Color : player2Color);
     }
 
-    private void Start()
+    private void resetSelections()
     {
-        this.canvas = GetComponent<Canvas>();
-        this.portraits = transform.GetChild(0);
-        characterCount = portraits.childCount;
-        for (int i=0; i<characterCount; i++)
+        playerReady = new bool[] { false, false };
+        for (int i = 0; i < characterCount; i++)
         {
             ClearPortraitSelection(i);
         }
         SelectPortrait(PLAYER_1_ID, playerSelections[PLAYER_1_INDEX]);
         SelectPortrait(PLAYER_2_ID, playerSelections[PLAYER_2_INDEX]);
+    }
+
+    private void Awake()
+    {
+        this.canvas = GetComponent<Canvas>();
+        this.portraits = transform.GetChild(0);
+        this.characterCount = portraits.childCount;
+    }
+
+    private void OnEnable()
+    {
+        resetSelections();
     }
 
     void Update()
@@ -64,7 +74,6 @@ public class CharacterSelectUI : PubSubMonoBehaviour
             return;
         }
 
-        // DEBUG Player input emulation
         if (!playerReady[PLAYER_1_INDEX])
         {
             if (Input.GetAxis(this.AxisSets[0].HorizontalAxis) < 0.0f && !this.player1StickDown)
