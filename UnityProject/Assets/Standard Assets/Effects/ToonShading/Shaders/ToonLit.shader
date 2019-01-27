@@ -10,7 +10,7 @@ Shader "Toon/Lit" {
 		LOD 200
 		
 CGPROGRAM
-#pragma surface surf ToonRamp
+#pragma surface surf Lambert ToonRamp
 
 sampler2D _Ramp;
 
@@ -37,11 +37,12 @@ sampler2D _MainTex;
 float4 _Color;
 
 struct Input {
+	float4 color: Color;
 	float2 uv_MainTex : TEXCOORD0;
 };
 
 void surf (Input IN, inout SurfaceOutput o) {
-	half4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
+	half4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color * IN.color.rgb;
 	o.Albedo = c.rgb;
 	o.Alpha = c.a;
 }
