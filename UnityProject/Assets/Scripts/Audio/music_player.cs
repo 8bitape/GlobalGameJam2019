@@ -24,6 +24,8 @@ public class music_player : PubSubMonoBehaviour
         //TODO Link to battle/menu start/end
         this.Subscribe<FightStart>(e => this.BattleMusicStart());
         this.Subscribe<FightOver>(e => this.BattleMusicStop());
+        this.Subscribe<StartCharacterSelect>(e => this.MenuMusicStart());
+        this.Subscribe<EndCharacterSelect>(e => this.MenuMusicStop());
     }
 
     private void MenuMusicStart()
