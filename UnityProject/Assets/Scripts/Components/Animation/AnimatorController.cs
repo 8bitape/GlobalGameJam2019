@@ -15,10 +15,7 @@ public class AnimatorController : PubSubMonoBehaviour
     public void Init(Player player)
     {
         this.PlayerId = player.Id;
-    }
 
-    private void Awake()
-    {
         this.Animator = this.GetComponent<Animator>();
 
         if (this.Animator != null)

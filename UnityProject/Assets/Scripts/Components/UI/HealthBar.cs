@@ -14,7 +14,7 @@ public class HealthBar : PubSubMonoBehaviour
 
     void Awake()
     {
-        PubSub.GetEvent<CurrentPlayerHealth>().Where(e=>e.PlayerID == playerID).Subscribe<CurrentPlayerHealth>(this.UpdateHealthBar);
+        PubSub.GetEvent<CurrentPlayerHealth>().Where(e=>e.PlayerID == playerID).Subscribe(this.UpdateHealthBar);
     }
 
     private void UpdateHealthBar(CurrentPlayerHealth health)

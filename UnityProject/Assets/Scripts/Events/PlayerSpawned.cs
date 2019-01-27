@@ -2,15 +2,11 @@
 
 namespace Events
 {
-    public class PlayerSpawned
+    public class PlayerSpawned : PlayerEvent
     {
-        public int PlayerID { get; set; }
-        public GameObject Obj { get; set; }
-
-        public PlayerSpawned(int playerID, GameObject obj)
+        public PlayerSpawned(Player player) : base(player)
         {
-            this.PlayerID = playerID;
-            this.Obj = obj;
+
         }
     }
 }
