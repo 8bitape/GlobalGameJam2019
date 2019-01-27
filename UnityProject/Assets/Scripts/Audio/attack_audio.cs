@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using FMODUnity;
 using UniRxEventAggregator.Events;
 using UniRx;
@@ -8,9 +6,6 @@ using Events;
 
 public class attack_audio : PubSubMonoBehaviour 
 {
-    [SerializeField]
-    private int PlayerID = 0;
-
     [Header("Light Punch")]
     [FMODUnity.EventRef]
     public string LightPunchAudio = ("event:/");
@@ -29,7 +24,7 @@ public class attack_audio : PubSubMonoBehaviour
 
     private void Awake()
     {
-        PubSub.GetEvent<PlayerHit>().Where(e => e.PlayerID != this.PlayerID).Subscribe(e => this.PlayAudio(e));
+        PubSub.GetEvent<PlayerHit>().Subscribe(e => this.PlayAudio(e));
 
     }
 

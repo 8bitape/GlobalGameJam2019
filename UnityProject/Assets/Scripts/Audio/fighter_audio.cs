@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using FMODUnity;
 using UniRxEventAggregator.Events;
 using UniRx;
@@ -8,9 +6,6 @@ using Events;
 
 public class fighter_audio : PubSubMonoBehaviour 
 {
-    [SerializeField]
-    private int PlayerID = 0;
-
     [Header("Light Swing")]
     [FMODUnity.EventRef]
     public string LightSwingAudio = ("event:/");
@@ -30,9 +25,9 @@ public class fighter_audio : PubSubMonoBehaviour
 
     private void Awake()
     {
-        PubSub.GetEvent<PlayerAttack>().Where(e => e.JoystickID == this.PlayerID).Subscribe(e => this.PlayAudio(e));
-        PubSub.GetEvent<PlayerJumpStart>().Where(e => e.PlayerID == this.PlayerID).Subscribe(e => this.PlayJumpStartAudio(e));
-        PubSub.GetEvent<PlayerJumpEnd>().Where(e => e.PlayerID == this.PlayerID).Subscribe(e => this.PlayJumpEndAudio(e));
+        PubSub.GetEvent<PlayerAttack>().Subscribe(e => this.PlayAudio(e));
+        PubSub.GetEvent<PlayerJumpStart>().Subscribe(e => this.PlayJumpStartAudio(e));
+        PubSub.GetEvent<PlayerJumpEnd>().Subscribe(e => this.PlayJumpEndAudio(e));
     }
 
     private void PlayAudio(PlayerAttack playerAttack)
