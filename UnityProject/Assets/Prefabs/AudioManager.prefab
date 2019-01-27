@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MenuMusic: event:/Music/CharacterSelect_Music
   BattleMusic: event:/Music/Battle_Music
+  EndBattleBell: event:/Music/EndBattle_Bell
 --- !u!114 &2973966412432055999
 MonoBehaviour:
   m_ObjectHideFlags: 0
