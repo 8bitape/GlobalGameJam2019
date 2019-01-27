@@ -161,6 +161,8 @@ public class CharacterSelectUI : PubSubMonoBehaviour
         border.color = GetPlayerColor(playerID);
 
         playerReady[playerIndex] = true;
+
+        PubSub.Publish(new CharacterSelectReadyChange(playerID, this.playerSelections[playerIndex], true));
     }
 
     private void UnlockSelection(int playerID)
@@ -173,6 +175,8 @@ public class CharacterSelectUI : PubSubMonoBehaviour
         border.color = new Color(0f, 0f, 0f);
 
         playerReady[playerIndex] = false;
+
+        PubSub.Publish(new CharacterSelectReadyChange(playerID, this.playerSelections[playerIndex], false));
     }
 
     private void MoveSelection(int playerID, int delta)
@@ -187,6 +191,8 @@ public class CharacterSelectUI : PubSubMonoBehaviour
             this.playerSelections[playerIndex] = (this.playerSelections[playerIndex] + this.characterCount + delta) % this.characterCount;
         }
         SelectPortrait(playerID, this.playerSelections[playerIndex]);
+
+        PubSub.Publish(new CharacterSelectChange(playerID, this.playerSelections[playerIndex], delta));
     }
 
     private Transform GetSelectionForPlayer(int playerID)
