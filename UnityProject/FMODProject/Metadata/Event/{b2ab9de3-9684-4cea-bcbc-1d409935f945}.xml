@@ -162,9 +162,6 @@
         </relationship>
     </object>
     <object class="MultiSound" id="{a169ddbc-5b85-47c1-ad43-934f03e02830}">
-        <property name="start">
-            <value>0.90000000000000002</value>
-        </property>
         <property name="length">
             <value>0.20000000000000001</value>
         </property>
@@ -191,6 +188,9 @@
         </relationship>
     </object>
     <object class="MultiSound" id="{ec9b8253-59ce-4e12-8dd0-53c5c4a0f8bb}">
+        <property name="start">
+            <value>0.90000000000000002</value>
+        </property>
         <property name="length">
             <value>0.20000000000000001</value>
         </property>
