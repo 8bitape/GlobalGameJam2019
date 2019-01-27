@@ -1,6 +1,6 @@
 ﻿namespace Events
 {
-    public class GameOver
+    public class FightOver
     {
 
     }

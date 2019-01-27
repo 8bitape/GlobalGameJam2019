@@ -1,6 +1,6 @@
 ﻿namespace Events
 {
-    public class GameStart
+    public class FightStart
     {
 
     }

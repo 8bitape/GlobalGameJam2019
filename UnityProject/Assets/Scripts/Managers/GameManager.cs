@@ -8,19 +8,18 @@ public class GameManager : PubSubMonoBehaviour
    {
         this.Subscribe<TimeRanOut>(this.TimeRanOut);
         this.Subscribe<PlayerKnockedOut>(this.PlayerKnockedOut);
-        this.Subscribe<GameOver>(this.GameOver);
+        this.Subscribe<FightOver>(this.GameOver);
         this.Subscribe<EndCharacterSelect>(this.EndCharacterSelect);
    }
 
    private void Start()
    {
-        PubSub.Publish(new GameStart());
         PubSub.Publish(new StartCharacterSelect());
    }
 
    private void EndCharacterSelect(EndCharacterSelect endCharacterSelect)
    {
-
+        PubSub.Publish(new FightStart());
    }
 
    private void TimeRanOut(TimeRanOut timeRanOut)
@@ -33,8 +32,8 @@ public class GameManager : PubSubMonoBehaviour
 
    }
 
-   private void GameOver(GameOver gameOver)
-   { 
-    
+   private void GameOver(FightOver gameOver)
+   {
+        PubSub.Publish(new StartCharacterSelect());
    }
 }

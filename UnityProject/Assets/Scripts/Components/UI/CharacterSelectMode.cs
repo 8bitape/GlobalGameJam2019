@@ -11,12 +11,14 @@ public class CharacterSelectMode : PubSubMonoBehaviour
 
     void Awake()
     {
-        this.Subscribe<StartCharacterSelect>(this.StartCharacterSelection);
         this.characterSelectUI = transform.GetChild(0).gameObject;
+
+        this.Subscribe<StartCharacterSelect>(e => this.EnableUI(true));
+        this.Subscribe<EndCharacterSelect>(e => this.EnableUI(false));
     }
 
-    public void StartCharacterSelection(StartCharacterSelect chracterSelectEvent)
+    private void EnableUI(bool isEnabled)
     {
-        characterSelectUI.SetActive(true);
+        characterSelectUI.SetActive(isEnabled);
     }
 }

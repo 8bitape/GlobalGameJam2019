@@ -37,6 +37,11 @@ public class InputManager : PubSubMonoBehaviour
             PubSub.Publish<PlayerAttack>(new PlayerAttack(1, AttackType.HeavyPunch));
         }
 
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            PubSub.Publish(new FightOver());
+        }
+
         // AXIS INPUT
         if (this.AxisSets != null)
         {
