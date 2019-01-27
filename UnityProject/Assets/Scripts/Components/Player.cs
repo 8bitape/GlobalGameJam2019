@@ -26,6 +26,9 @@ public class Player : PubSubMonoBehaviour
     private MovementDirection startingMovementDirection = MovementDirection.None;
     public MovementDirection StartingMovementDirection { get { return this.startingMovementDirection; } }
 
+    private Transform RightHand { get; set; }
+    public Transform Chest { get; private set; }
+
     private void Awake()
     {
         this.gameObject.AddComponent<PlayerHealth>().Init(this);
@@ -34,11 +37,12 @@ public class Player : PubSubMonoBehaviour
         this.gameObject.AddComponent<Body>().Init(this);
         this.gameObject.AddComponent<AnimatorController>().Init(this);
 
-        var rightHand = this.gameObject.transform.Find("Actor/Armature/Root/Chest/UpperArm.R/LowerArm.R/Hand.R");
+        this.Chest = this.gameObject.transform.Find("Actor/Armature/Root/Chest");
+        this.RightHand = this.gameObject.transform.Find("Actor/Armature/Root/Chest/UpperArm.R/LowerArm.R/Hand.R");
 
-        if (rightHand != null)
+        if (this.RightHand != null)
         {
-            rightHand.gameObject.AddComponent<PlayerLimb>().Init(this, AttackType.LightPunch);
+            this.RightHand.gameObject.AddComponent<PlayerLimb>().Init(this, AttackType.LightPunch);
         }
     }
 
