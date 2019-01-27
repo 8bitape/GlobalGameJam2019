@@ -19,7 +19,7 @@ public class GameManager : PubSubMonoBehaviour
 
    private void EndCharacterSelect(EndCharacterSelect endCharacterSelect)
    {
-        PubSub.Publish(new FightStart());
+        PubSub.Publish(new FightStart(endCharacterSelect));
    }
 
    private void TimeRanOut(TimeRanOut timeRanOut)
@@ -29,8 +29,8 @@ public class GameManager : PubSubMonoBehaviour
 
    private void PlayerKnockedOut(PlayerKnockedOut playerKnockedOut)
    {
-
-   }
+        PubSub.Publish(new FightOver());
+    }
 
    private void GameOver(FightOver gameOver)
    {

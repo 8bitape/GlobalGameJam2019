@@ -29,12 +29,33 @@ public class Player : PubSubMonoBehaviour
     private Transform RightHand { get; set; }
     public Transform Chest { get; private set; }
 
+    private PlayerHealth PlayerHealth { get; set; }
+    private PlayerOpponent PlayerOpponent { get; set; }
+    private PlayerMovement PlayerMovement { get; set; }
+    private Body Body { get; set; }
+
+    public void Reset()
+    {
+        this.PlayerHealth.Init(this);
+        this.PlayerMovement.Init(this);
+        this.PlayerOpponent.Init(this);
+        this.Body.Init(this);
+    }
+
     private void Awake()
     {
-        this.gameObject.AddComponent<PlayerHealth>().Init(this);
-        this.gameObject.AddComponent<PlayerOpponent>().Init(this);
-        this.gameObject.AddComponent<PlayerMovement>().Init(this);
-        this.gameObject.AddComponent<Body>().Init(this);
+        this.PlayerHealth = this.gameObject.AddComponent<PlayerHealth>();
+        this.PlayerHealth.Init(this);
+
+        this.PlayerOpponent = this.gameObject.AddComponent<PlayerOpponent>();
+        this.PlayerOpponent.Init(this);
+
+        this.PlayerMovement = this.gameObject.AddComponent<PlayerMovement>();
+        this.PlayerMovement.Init(this);
+
+        this.Body = this.gameObject.AddComponent<Body>();
+        this.Body.Init(this);
+
         this.gameObject.AddComponent<AnimatorController>().Init(this);
 
         this.Chest = this.gameObject.transform.Find("Actor/Armature/Root/Chest");
