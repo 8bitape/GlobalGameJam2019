@@ -101,7 +101,7 @@
     </object>
     <object class="EventMixerGroup" id="{8ec63a54-d310-4431-8018-a3816bfcf709}">
         <property name="volume">
-            <value>-10</value>
+            <value>-11.5</value>
         </property>
         <property name="name">
             <value>Char Select Music</value>
@@ -150,13 +150,16 @@
             <value>-76.1481476</value>
         </property>
         <property name="attackTime">
-            <value>2000</value>
+            <value>1192.30798</value>
         </property>
         <property name="attackShape">
             <value>-0.437813163</value>
         </property>
+        <property name="peakValue">
+            <value>0.577777863</value>
+        </property>
         <property name="releaseTime">
-            <value>520</value>
+            <value>116.153885</value>
         </property>
     </object>
     <object class="MixerBusEffectChain" id="{abe18169-7dc0-4be5-848f-428838631039}">
