@@ -79,3 +79,4 @@ MonoBehaviour:
   HeavyPunchAudio: event:/SFX/HeavyPunch
   LightKickAudio: event:/SFX/LightKick
   HeavyKickAudio: event:/SFX/HeavyKick
+  BlockAudio: event:/SFX/Gen_Block
