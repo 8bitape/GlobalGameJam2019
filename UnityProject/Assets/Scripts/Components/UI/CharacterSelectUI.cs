@@ -180,13 +180,13 @@ public class CharacterSelectUI : PubSubMonoBehaviour
         int playerIndex = GetPlayerIndexFromID(playerID);
         int otherPlayerIndex = (playerIndex == 0 ? 1 : 0);
 
-        ClearPortraitSelection(playerSelections[playerIndex]);
-        playerSelections[playerIndex] = (playerSelections[playerIndex] + this.characterCount + delta) % this.characterCount;
-        if (playerSelections[playerIndex] == playerSelections[otherPlayerIndex])
+        ClearPortraitSelection(this.playerSelections[playerIndex]);
+        this.playerSelections[playerIndex] = (this.playerSelections[playerIndex] + this.characterCount + delta) % this.characterCount;
+        while (this.playerSelections[playerIndex] == this.playerSelections[otherPlayerIndex] || this.portraits.GetChild(this.playerSelections[playerIndex]).CompareTag("Locked"))
         {
-            playerSelections[playerIndex] = (playerSelections[playerIndex] + this.characterCount + delta) % this.characterCount;
+            this.playerSelections[playerIndex] = (this.playerSelections[playerIndex] + this.characterCount + delta) % this.characterCount;
         }
-        SelectPortrait(playerID, playerSelections[playerIndex]);
+        SelectPortrait(playerID, this.playerSelections[playerIndex]);
     }
 
     private Transform GetSelectionForPlayer(int playerID)

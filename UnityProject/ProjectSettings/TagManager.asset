@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - FlipCollider
+  - Locked
   layers:
   - Default
   - TransparentFX
