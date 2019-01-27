@@ -40,7 +40,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 114883262888588242}
   - {fileID: 114629890509561162}
-  stringsBankWriteTime: 636841287780000000
+  stringsBankWriteTime: 636841763990000000
   cacheVersion: 3
 --- !u!114 &114007628226082664
 MonoBehaviour:
@@ -56,11 +56,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: /Users/alexgreen/Documents/GitHub/GlobalGameJam2019/UnityProject/FMODProject/Build/Desktop/Master
     Bank.bank
-  lastModified: 636841287780000000
+  lastModified: 636841763990000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1642624
+    Value: 1649184
   Exists: 1
 --- !u!114 &114029554324861072
 MonoBehaviour:
@@ -165,6 +165,22 @@ MonoBehaviour:
   Min: 0
   Max: 3
   Default: 0
+--- !u!114 &114189026539565272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CharacterID
+  Min: 0
+  Max: 3
+  Default: 0
 --- !u!114 &114220677766001958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +201,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 114583801411297848}
+  - {fileID: 114790470058239084}
   MinDistance: 10000
   MaxDistance: 10000
   Length: 0
@@ -383,7 +399,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 114788529015612236}
+  - {fileID: 114189026539565272}
   MinDistance: 10000
   MaxDistance: 10000
   Length: 0
@@ -508,7 +524,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 114407153139981210}
+  - {fileID: 114528446263921386}
   MinDistance: 10000
   MaxDistance: 10000
   Length: 0
@@ -604,6 +620,22 @@ MonoBehaviour:
   MinDistance: 10000
   MaxDistance: 10000
   Length: 334
+--- !u!114 &114528446263921386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CharacterID
+  Min: 0
+  Max: 3
+  Default: 0
 --- !u!114 &114583801411297848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,6 +717,22 @@ MonoBehaviour:
   MinDistance: 10000
   MaxDistance: 10000
   Length: 334
+--- !u!114 &114720605536682362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CharacterID
+  Min: 0
+  Max: 3
+  Default: 0
 --- !u!114 &114737553411530456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,6 +809,22 @@ MonoBehaviour:
     Value: 1642624
   Exists: 0
 --- !u!114 &114788529015612236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CharacterID
+  Min: 0
+  Max: 3
+  Default: 0
+--- !u!114 &114790470058239084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -883,7 +947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: FMODProject/Build/Desktop/Master Bank.strings.bank
-  lastModified: 636841287780000000
+  lastModified: 636841763990000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -1063,7 +1127,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 114764505854652946}
+  - {fileID: 114720605536682362}
   MinDistance: 10000
   MaxDistance: 10000
   Length: 0
