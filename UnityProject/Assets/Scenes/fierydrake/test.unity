@@ -464,19 +464,73 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 814878586, guid: 65139610f67e45e4d889743568c12ccc, type: 3}
+    - target: {fileID: 5561191631134192333, guid: 65139610f67e45e4d889743568c12ccc,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561191631134192333, guid: 65139610f67e45e4d889743568c12ccc,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561191631134192333, guid: 65139610f67e45e4d889743568c12ccc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561191631134192333, guid: 65139610f67e45e4d889743568c12ccc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561191631134192333, guid: 65139610f67e45e4d889743568c12ccc,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735989475381100338, guid: 65139610f67e45e4d889743568c12ccc,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735989475381100338, guid: 65139610f67e45e4d889743568c12ccc,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735989475381100338, guid: 65139610f67e45e4d889743568c12ccc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735989475381100338, guid: 65139610f67e45e4d889743568c12ccc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735989475381100338, guid: 65139610f67e45e4d889743568c12ccc,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735989476016133361, guid: 65139610f67e45e4d889743568c12ccc,
+        type: 3}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 814878586, guid: 65139610f67e45e4d889743568c12ccc, type: 3}
+    - target: {fileID: 6735989476016133361, guid: 65139610f67e45e4d889743568c12ccc,
+        type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 327897278, guid: 65139610f67e45e4d889743568c12ccc, type: 3}
+    - target: {fileID: 6735989476602891061, guid: 65139610f67e45e4d889743568c12ccc,
+        type: 3}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 327897278, guid: 65139610f67e45e4d889743568c12ccc, type: 3}
+    - target: {fileID: 6735989476602891061, guid: 65139610f67e45e4d889743568c12ccc,
+        type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
@@ -703,6 +757,7 @@ MonoBehaviour:
   HeavyPunchAudio: event:/
   LightKickAudio: event:/
   HeavyKickAudio: event:/
+  BlockAudio: event:/
 --- !u!114 &365816802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1440,6 +1495,7 @@ MonoBehaviour:
   HeavyPunchAudio: event:/
   LightKickAudio: event:/
   HeavyKickAudio: event:/
+  BlockAudio: event:/
 --- !u!114 &985774827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1733,6 +1789,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8994365826221949056, guid: 6496637bfe77b41a8888da712e3296b4,
+        type: 3}
+      propertyPath: playerID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8994365826221949082, guid: 6496637bfe77b41a8888da712e3296b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1789,11 +1850,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8994365826221949062, guid: 6496637bfe77b41a8888da712e3296b4,
-        type: 3}
-      propertyPath: playerID
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8994365826221949056, guid: 6496637bfe77b41a8888da712e3296b4,
         type: 3}
       propertyPath: playerID
       value: 2
