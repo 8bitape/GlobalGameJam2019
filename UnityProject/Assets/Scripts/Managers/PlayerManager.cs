@@ -8,9 +8,6 @@ public class PlayerManager : PubSubMonoBehaviour
     private GameObject Player1Prefab { get; set; }
     private GameObject Player2Prefab { get; set; }
 
-    private GameObject Player1 { get; set; }
-    private GameObject Player2 { get; set; }
-
     private readonly Vector3 OFFSCREEN = new Vector3(100, 0, 0);
     private readonly Vector3 PLAYER_1_START_POS = new Vector3(-2, 0, 0);
     private readonly Vector3 PLAYER_2_START_POS = new Vector3(2, 0, 0);
@@ -39,5 +36,8 @@ public class PlayerManager : PubSubMonoBehaviour
     {
         this.Player1Prefab.transform.position = this.OFFSCREEN;
         this.Player2Prefab.transform.position = this.OFFSCREEN;
+
+        this.Player1Prefab.GetComponent<Player>().Reset();
+        this.Player2Prefab.GetComponent<Player>().Reset();
     }
 }
